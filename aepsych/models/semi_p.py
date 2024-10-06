@@ -205,6 +205,7 @@ class SemiParametricGPModel(GPClassificationModel):
             inducing_point_method (string): The method to use to select the inducing points. Defaults to "auto".
                 If "sobol", a number of Sobol points equal to inducing_size will be selected.
                 If "pivoted_chol", selects points based on the pivoted Cholesky heuristic.
+                if "greedy_ei", selects points based on the greedy expected improvement heuristic.
                 If "kmeans++", selects points by performing kmeans++ clustering on the training data.
                 If "auto", tries to determine the best method automatically.
         """
@@ -451,6 +452,7 @@ class HadamardSemiPModel(GPClassificationModel):
             inducing_point_method (string): The method to use to select the inducing points. Defaults to "auto".
                 If "sobol", a number of Sobol points equal to inducing_size will be selected.
                 If "pivoted_chol", selects points based on the pivoted Cholesky heuristic.
+                if "greedy_ei", selects points based on the greedy expected improvement heuristic.
                 If "kmeans++", selects points by performing kmeans++ clustering on the training data.
                 If "auto", tries to determine the best method automatically.
         """

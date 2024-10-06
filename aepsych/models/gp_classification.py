@@ -76,6 +76,7 @@ class GPClassificationModel(AEPsychMixin, ApproximateGP):
                 If "sobol", a number of Sobol points equal to inducing_size will be selected.
                 If "pivoted_chol", selects points based on the pivoted Cholesky heuristic.
                 If "kmeans++", selects points by performing kmeans++ clustering on the training data.
+                if "greedy_ei", selects points based on the greedy expected improvement heuristic.
                 If "auto", tries to determine the best method automatically.
         """
         self.lb, self.ub, self.dim = _process_bounds(lb, ub, dim)

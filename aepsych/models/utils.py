@@ -16,7 +16,7 @@ from botorch.acquisition import PosteriorMean
 from botorch.acquisition.objective import PosteriorTransform
 from botorch.acquisition.objective import ScalarizedPosteriorTransform
 from botorch.models.model import Model
-from botorch.models.utils.inducing_point_allocators import GreedyVarianceReduction
+from botorch.models.utils.inducing_point_allocators import GreedyVarianceReduction, GreedyImprovementReduction
 from botorch.optim import optimize_acqf
 from botorch.posteriors import GPyTorchPosterior
 from botorch.utils.sampling import draw_sobol_samples
@@ -64,7 +64,8 @@ def select_inducing_points(
             "kmeans++",
             "auto",
             "sobol",
-        ), f"Inducing point method should be one of pivoted_chol, kmeans++, sobol, or auto; got {method}"
+            "greedy_ei",
+        ), f"Inducing point method should be one of pivoted_chol, kmeans++, sobol, greedy_ei, or auto; got {method}"
 
         if method == "sobol":
             assert bounds is not None, "Must pass bounds for sobol inducing points!"
@@ -87,6 +88,14 @@ def select_inducing_points(
 
         if method == "pivoted_chol":
             inducing_point_allocator = GreedyVarianceReduction()
+            inducing_points = inducing_point_allocator.allocate_inducing_points(
+                inputs=X,
+                covar_module=covar_module,
+                num_inducing=inducing_size,
+                input_batch_shape=torch.Size([]),
+            )
+        elif method == "greedy_ei":
+            inducing_point_allocator = GreedyImprovementReduction(model=model, maximize=True)?????
             inducing_points = inducing_point_allocator.allocate_inducing_points(
                 inputs=X,
                 covar_module=covar_module,
