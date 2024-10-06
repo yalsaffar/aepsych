@@ -303,6 +303,9 @@ class AEPsychServer(object):
         state = self.__dict__.copy()
         del state["socket"]
         del state["db"]
+        
+        if "receive_thread" in state:
+            del state["receive_thread"]
         return state
 
     def write_strats(self, termination_type):
