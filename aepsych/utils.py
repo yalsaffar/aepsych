@@ -143,7 +143,7 @@ def get_lse_interval(
     samps = [s.reshape((gridsize,) * model.dim) for s in samps.detach().numpy()]
     contours = np.stack(
         [
-            get_lse_contour(norm.cdf(s), mono_grid, target_level, mono_dim, lb, ub)
+            get_lse_contour(norm.cdf(s), mono_grid, target_level, mono_dim, lb, ub).numpy()
             for s in samps
         ]
     )
@@ -163,11 +163,11 @@ def get_lse_interval(
 
 
 def get_lse_contour(post_mean, mono_grid, level, mono_dim=-1, lb=-np.inf, ub=np.inf):
-    return np.apply_along_axis(
+    return torch.Tensor(np.apply_along_axis(
         lambda p: interpolate_monotonic(mono_grid, p, level, lb, ub),
         mono_dim,
         post_mean,
-    ) # Needs to be fixed
+    )) # Fixed?
 
 
 def get_jnd_1d(post_mean, mono_grid, df=1, mono_dim=-1, lb=-np.inf, ub=np.inf):

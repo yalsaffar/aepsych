@@ -310,7 +310,7 @@ def _plot_strat_2d(
             true_f = true_testfun(grid).reshape(gridsize, gridsize)
             true_thresh = get_lse_contour(
                 true_f, mono_grid, level=target_level, lb=strat.lb[-1], ub=strat.ub[-1]
-            )
+            ).numpy()
             ax.plot(context_grid, true_thresh, label="Ground truth threshold")
 
     ax.set_xlabel(xlabel)
