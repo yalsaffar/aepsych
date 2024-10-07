@@ -185,6 +185,7 @@ class Strategy(object):
         assert (
             x.shape == self.event_shape or x.shape[1:] == self.event_shape
         ), f"x shape should be {self.event_shape} or batch x {self.event_shape}, instead got {x.shape}"
+        y = torch.tensor(y) #Later: should fix the list passing in tests!
 
         if x.shape == self.event_shape:
             x = x[None, :]
