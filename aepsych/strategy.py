@@ -174,12 +174,12 @@ class Strategy(object):
         """converts inputs into normalized format for this strategy
 
         Args:
-            x (np.ndarray): training inputs
-            y (np.ndarray): training outputs
+            x (torch.Tensor): training inputs
+            y (torch.Tensor): training outputs
 
         Returns:
-            x (np.ndarray): training inputs, normalized
-            y (np.ndarray): training outputs, normalized
+            x (torch.Tensor): training inputs, normalized
+            y (torch.Tensor): training outputs, normalized
             n (int): number of observations
         """
         assert (
@@ -190,18 +190,18 @@ class Strategy(object):
             x = x[None, :]
 
         if self.x is None:
-            x = np.r_[x]
+            x = x
         else:
-            x = np.r_[self.x, x]
+            x = torch.cat((self.x, x), dim=0)
 
         if self.y is None:
-            y = np.r_[y]
+            y = y
         else:
-            y = np.r_[self.y, y]
+            y = torch.cat((self.y, y), dim=0)
 
         n = y.shape[0]
 
-        return torch.Tensor(x), torch.Tensor(y), n # But this is Tensor?
+        return x, y, n
 
     # TODO: allow user to pass in generator options
     @ensure_model_is_fresh
