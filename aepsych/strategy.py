@@ -170,7 +170,7 @@ class Strategy(object):
 
         self.name = name
 
-    def normalize_inputs(self, x, y): #Args need to be Tensors
+    def normalize_inputs(self, x, y): # Fixed?
         """converts inputs into normalized format for this strategy
 
         Args:
@@ -213,10 +213,10 @@ class Strategy(object):
             Other arguments are forwared to underlying model.
 
         Returns:
-            np.ndarray: Next set of point(s) to evaluate, [num_points x dim].
+            torch.Tensor: Next set of point(s) to evaluate, [num_points x dim].
         """
         self._count = self._count + num_points
-        return self.generator.gen(num_points, self.model) # But this is Tensor?
+        return self.generator.gen(num_points, self.model) # Fixed?
 
     @ensure_model_is_fresh
     def get_max(self, constraints=None, probability_space=False, max_time=None):
