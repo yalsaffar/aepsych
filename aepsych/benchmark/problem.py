@@ -51,7 +51,7 @@ class Problem:
         Benchmark's output dataframe, with its associated value stored in each row."""
         return {"name": self.name}
 
-    def p(self, x: np.ndarray) -> np.ndarray:
+    def p(self, x: np.ndarray) -> np.ndarray: #Args need to be Tensor?
         """Evaluate response probability from test function.
 
         Args:
@@ -60,9 +60,9 @@ class Problem:
         Returns:
             np.ndarray: Response probability at queries points.
         """
-        return norm.cdf(self.f(x))
+        return norm.cdf(self.f(x)) # returns np array
 
-    def sample_y(self, x: np.ndarray) -> np.ndarray:
+    def sample_y(self, x: np.ndarray) -> np.ndarray: #Args need to be Tensor?
         """Sample a response from test function.
 
         Args:
@@ -71,7 +71,7 @@ class Problem:
         Returns:
             np.ndarray: A single (bernoulli) sample at points.
         """
-        return bernoulli.rvs(self.p(x))
+        return bernoulli.rvs(self.p(x)) # returns np array
 
     def f_hat(self, model: aepsych.models.base.ModelProtocol) -> torch.Tensor:
         """Generate mean predictions from the model over the evaluation grid.
@@ -86,13 +86,13 @@ class Problem:
         return f_hat
 
     @cached_property
-    def f_true(self) -> np.ndarray:
+    def f_true(self) -> np.ndarray: 
         """Evaluate true test function over evaluation grid.
 
         Returns:
             torch.Tensor: Values of true test function over evaluation grid.
         """
-        return self.f(self.eval_grid).detach().numpy()
+        return self.f(self.eval_grid).detach().numpy() # says tensor, but its np.array?
 
     @cached_property
     def p_true(self) -> torch.Tensor:
@@ -101,7 +101,7 @@ class Problem:
         Returns:
             torch.Tensor: Values of true response probability over evaluation grid.
         """
-        return norm.cdf(self.f_true)
+        return norm.cdf(self.f_true) # says tensor, but its np.array?
 
     def p_hat(self, model: aepsych.models.base.ModelProtocol) -> torch.Tensor:
         """Generate mean predictions from the model over the evaluation grid.

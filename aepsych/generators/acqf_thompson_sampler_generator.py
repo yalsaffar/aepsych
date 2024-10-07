@@ -86,10 +86,10 @@ class AcqfThompsonSamplerGenerator(AEPsychGenerator):
 
             # output of super() is (q, dim) but the contract is (num_points, dim, 2)
             # so we need to split q into q and pairs and then move the pair dim to the end
-            return qbatch_points.reshape(num_points, 2, -1).swapaxes(-1, -2)
+            return qbatch_points.reshape(num_points, 2, -1).swapaxes(-1, -2) # But this is Tensor?
 
         else:
-            return self._gen(num_points=num_points, model=model, **gen_options)
+            return self._gen(num_points=num_points, model=model, **gen_options) # But this is Tensor?
 
     def _gen(
         self, num_points: int, model: ModelProtocol, **gen_options

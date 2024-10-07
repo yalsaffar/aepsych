@@ -167,7 +167,7 @@ def get_lse_contour(post_mean, mono_grid, level, mono_dim=-1, lb=-np.inf, ub=np.
         lambda p: interpolate_monotonic(mono_grid, p, level, lb, ub),
         mono_dim,
         post_mean,
-    )
+    ) # Needs to be fixed
 
 
 def get_jnd_1d(post_mean, mono_grid, df=1, mono_dim=-1, lb=-np.inf, ub=np.inf):
@@ -177,7 +177,7 @@ def get_jnd_1d(post_mean, mono_grid, df=1, mono_dim=-1, lb=-np.inf, ub=np.inf):
             [interpolate_monotonic(mono_grid, post_mean, ito) for ito in interpolate_to]
         )
         - mono_grid
-    )
+    ) # Needs to be fixed
 
 
 def get_jnd_multid(post_mean, mono_grid, df=1, mono_dim=-1, lb=-np.inf, ub=np.inf):
@@ -185,7 +185,7 @@ def get_jnd_multid(post_mean, mono_grid, df=1, mono_dim=-1, lb=-np.inf, ub=np.in
         lambda p: get_jnd_1d(p, mono_grid, df=df, mono_dim=mono_dim, lb=lb, ub=ub),
         mono_dim,
         post_mean,
-    )
+    ) # Needs to be fixed
 
 
 def _get_ax_parameters(config):

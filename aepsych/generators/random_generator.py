@@ -50,7 +50,7 @@ class RandomGenerator(AEPsychGenerator):
         X = self.bounds_[0] + torch.rand((num_points, self.bounds_.shape[1])) * (
             self.bounds_[1] - self.bounds_[0]
         )
-        return X
+        return X # But this is Tensor?
 
     @classmethod
     def from_config(cls, config: Config):

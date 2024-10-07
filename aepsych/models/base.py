@@ -383,4 +383,4 @@ class AEPsychMixin(GPyTorchModel):
         f_thresh = f_thresh.reshape(-1, 1)
         f = f.reshape(1, -1)
         var = var.reshape(1, -1)
-        return norm.cdf((f_thresh - f.detach().numpy()) / var.sqrt().detach().numpy())
+        return norm.cdf((f_thresh - f.detach().numpy()) / var.sqrt().detach().numpy()) # Maybe this should be torch.tensor?

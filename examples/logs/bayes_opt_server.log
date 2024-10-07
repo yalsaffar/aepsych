@@ -1,0 +1,1215 @@
+2024-09-27 01:33:34,426 [INFO   ] No DB found at ./databases/default.db, creating a new DB!
+2024-09-27 01:34:10,409 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-09-27 01:35:10,768 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-09-27 01:35:27,809 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-09-27 01:35:27,839 [ERROR  ] Exception during reset or similar
+Traceback (most recent call last):
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\pool\base.py", line 763, in _finalize_fairy
+    fairy._reset(pool, transaction_was_reset)
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\pool\base.py", line 1038, in _reset
+    pool._dialect.do_rollback(self)
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\engine\default.py", line 683, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13540 and this is thread id 28268.
+2024-09-27 01:35:27,955 [ERROR  ] Exception closing connection <sqlite3.Connection object at 0x0000022D62F93D30>
+Traceback (most recent call last):
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\pool\base.py", line 763, in _finalize_fairy
+    fairy._reset(pool, transaction_was_reset)
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\pool\base.py", line 1038, in _reset
+    pool._dialect.do_rollback(self)
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\engine\default.py", line 683, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13540 and this is thread id 28268.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\pool\base.py", line 260, in _close_connection
+    self._dialect.do_terminate(connection)
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\engine\default.py", line 689, in do_terminate
+    self.do_close(dbapi_connection)
+  File "c:\Users\spn\anaconda3\envs\aep\Lib\site-packages\sqlalchemy\engine\default.py", line 692, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13540 and this is thread id 28268.
+2024-09-27 01:35:46,129 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-09-27 01:35:52,283 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-09-28 18:58:43,384 [INFO   ] No DB found at data_collection_analysis_tutorial.db, creating a new DB!
+2024-09-28 18:58:57,381 [INFO   ] Received msg [setup]
+2024-09-28 18:59:04,888 [INFO   ] Received msg [ask]
+2024-09-28 18:59:11,174 [INFO   ] Received msg [tell]
+2024-10-01 19:25:01,527 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:25:20,778 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:30:13,693 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:30:13,723 [INFO   ] DBMasterTable : update called
+2024-10-01 19:30:13,729 [INFO   ] DbReplayTable : update called
+2024-10-01 19:30:13,733 [INFO   ] DbStratTable : update called
+2024-10-01 19:30:13,734 [INFO   ] DbConfigTable : update called
+2024-10-01 19:30:13,735 [INFO   ] DbRawTable : update called
+2024-10-01 19:30:13,738 [INFO   ] DbParamTable : update called
+2024-10-01 19:30:13,739 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:30:13,739 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:31:03,188 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:31:03,220 [INFO   ] DBMasterTable : update called
+2024-10-01 19:31:03,226 [INFO   ] DbReplayTable : update called
+2024-10-01 19:31:03,230 [INFO   ] DbStratTable : update called
+2024-10-01 19:31:03,231 [INFO   ] DbConfigTable : update called
+2024-10-01 19:31:03,232 [INFO   ] DbRawTable : update called
+2024-10-01 19:31:03,235 [INFO   ] DbParamTable : update called
+2024-10-01 19:31:03,236 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:31:03,237 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:31:05,087 [INFO   ] DBMasterTable : update called
+2024-10-01 19:31:05,091 [INFO   ] DbReplayTable : update called
+2024-10-01 19:31:05,095 [INFO   ] DbStratTable : update called
+2024-10-01 19:31:05,096 [INFO   ] DbConfigTable : update called
+2024-10-01 19:31:05,097 [INFO   ] DbRawTable : update called
+2024-10-01 19:31:05,099 [INFO   ] DbParamTable : update called
+2024-10-01 19:31:05,100 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:31:05,100 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:32:08,082 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:32:08,112 [INFO   ] DBMasterTable : update called
+2024-10-01 19:32:08,117 [INFO   ] DbReplayTable : update called
+2024-10-01 19:32:08,123 [INFO   ] DbStratTable : update called
+2024-10-01 19:32:08,124 [INFO   ] DbConfigTable : update called
+2024-10-01 19:32:08,125 [INFO   ] DbRawTable : update called
+2024-10-01 19:32:08,127 [INFO   ] DbParamTable : update called
+2024-10-01 19:32:08,128 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:32:08,129 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:32:10,880 [INFO   ] DBMasterTable : update called
+2024-10-01 19:32:10,884 [INFO   ] DbReplayTable : update called
+2024-10-01 19:32:10,888 [INFO   ] DbStratTable : update called
+2024-10-01 19:32:10,888 [INFO   ] DbConfigTable : update called
+2024-10-01 19:32:10,890 [INFO   ] DbRawTable : update called
+2024-10-01 19:32:10,891 [INFO   ] DbParamTable : update called
+2024-10-01 19:32:10,892 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:32:10,892 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:33:29,477 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:33:29,530 [INFO   ] DBMasterTable : update called
+2024-10-01 19:33:29,536 [INFO   ] DbReplayTable : update called
+2024-10-01 19:33:29,540 [INFO   ] DbStratTable : update called
+2024-10-01 19:33:29,541 [INFO   ] DbConfigTable : update called
+2024-10-01 19:33:29,541 [INFO   ] DbRawTable : update called
+2024-10-01 19:33:29,544 [INFO   ] DbParamTable : update called
+2024-10-01 19:33:29,545 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:33:29,545 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:33:31,454 [INFO   ] DBMasterTable : update called
+2024-10-01 19:33:31,458 [INFO   ] DbReplayTable : update called
+2024-10-01 19:33:31,462 [INFO   ] DbStratTable : update called
+2024-10-01 19:33:31,463 [INFO   ] DbConfigTable : update called
+2024-10-01 19:33:31,464 [INFO   ] DbRawTable : update called
+2024-10-01 19:33:31,465 [INFO   ] DbParamTable : update called
+2024-10-01 19:33:31,466 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:33:31,466 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:34:21,753 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:34:21,806 [INFO   ] DBMasterTable : update called
+2024-10-01 19:34:21,811 [INFO   ] DbReplayTable : update called
+2024-10-01 19:34:21,815 [INFO   ] DbStratTable : update called
+2024-10-01 19:34:21,816 [INFO   ] DbConfigTable : update called
+2024-10-01 19:34:21,817 [INFO   ] DbRawTable : update called
+2024-10-01 19:34:21,819 [INFO   ] DbParamTable : update called
+2024-10-01 19:34:21,820 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:34:21,822 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:34:29,749 [INFO   ] DBMasterTable : update called
+2024-10-01 19:34:29,754 [INFO   ] DbReplayTable : update called
+2024-10-01 19:34:29,757 [INFO   ] DbStratTable : update called
+2024-10-01 19:34:29,758 [INFO   ] DbConfigTable : update called
+2024-10-01 19:34:29,759 [INFO   ] DbRawTable : update called
+2024-10-01 19:34:29,761 [INFO   ] DbParamTable : update called
+2024-10-01 19:34:29,762 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:34:29,762 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:34:52,279 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:34:52,329 [INFO   ] DBMasterTable : update called
+2024-10-01 19:34:52,335 [INFO   ] DbReplayTable : update called
+2024-10-01 19:34:52,340 [INFO   ] DbStratTable : update called
+2024-10-01 19:34:52,341 [INFO   ] DbConfigTable : update called
+2024-10-01 19:34:52,342 [INFO   ] DbRawTable : update called
+2024-10-01 19:34:52,345 [INFO   ] DbParamTable : update called
+2024-10-01 19:34:52,345 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:34:52,346 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:34:57,260 [INFO   ] DBMasterTable : update called
+2024-10-01 19:34:57,264 [INFO   ] DbReplayTable : update called
+2024-10-01 19:34:57,270 [INFO   ] DbStratTable : update called
+2024-10-01 19:34:57,271 [INFO   ] DbConfigTable : update called
+2024-10-01 19:34:57,272 [INFO   ] DbRawTable : update called
+2024-10-01 19:34:57,274 [INFO   ] DbParamTable : update called
+2024-10-01 19:34:57,275 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:34:57,277 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:36:33,896 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:36:33,949 [INFO   ] DBMasterTable : update called
+2024-10-01 19:36:33,955 [INFO   ] DbReplayTable : update called
+2024-10-01 19:36:33,959 [INFO   ] DbStratTable : update called
+2024-10-01 19:36:33,959 [INFO   ] DbConfigTable : update called
+2024-10-01 19:36:33,960 [INFO   ] DbRawTable : update called
+2024-10-01 19:36:33,963 [INFO   ] DbParamTable : update called
+2024-10-01 19:36:33,964 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:36:33,964 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:36:35,897 [INFO   ] DBMasterTable : update called
+2024-10-01 19:36:35,901 [INFO   ] DbReplayTable : update called
+2024-10-01 19:36:35,905 [INFO   ] DbStratTable : update called
+2024-10-01 19:36:35,906 [INFO   ] DbConfigTable : update called
+2024-10-01 19:36:35,907 [INFO   ] DbRawTable : update called
+2024-10-01 19:36:35,910 [INFO   ] DbParamTable : update called
+2024-10-01 19:36:35,910 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:36:35,911 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:36:59,465 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:36:59,512 [INFO   ] DBMasterTable : update called
+2024-10-01 19:36:59,518 [INFO   ] DbReplayTable : update called
+2024-10-01 19:36:59,522 [INFO   ] DbStratTable : update called
+2024-10-01 19:36:59,522 [INFO   ] DbConfigTable : update called
+2024-10-01 19:36:59,522 [INFO   ] DbRawTable : update called
+2024-10-01 19:36:59,527 [INFO   ] DbParamTable : update called
+2024-10-01 19:36:59,527 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:36:59,528 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:37:01,310 [INFO   ] DBMasterTable : update called
+2024-10-01 19:37:01,314 [INFO   ] DbReplayTable : update called
+2024-10-01 19:37:01,319 [INFO   ] DbStratTable : update called
+2024-10-01 19:37:01,320 [INFO   ] DbConfigTable : update called
+2024-10-01 19:37:01,321 [INFO   ] DbRawTable : update called
+2024-10-01 19:37:01,323 [INFO   ] DbParamTable : update called
+2024-10-01 19:37:01,323 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:37:01,324 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:38:26,824 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:38:26,857 [INFO   ] DBMasterTable : update called
+2024-10-01 19:38:26,863 [INFO   ] DbReplayTable : update called
+2024-10-01 19:38:26,868 [INFO   ] DbStratTable : update called
+2024-10-01 19:38:26,869 [INFO   ] DbConfigTable : update called
+2024-10-01 19:38:26,869 [INFO   ] DbRawTable : update called
+2024-10-01 19:38:26,873 [INFO   ] DbParamTable : update called
+2024-10-01 19:38:26,874 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:38:26,874 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:38:28,559 [INFO   ] DBMasterTable : update called
+2024-10-01 19:38:28,563 [INFO   ] DbReplayTable : update called
+2024-10-01 19:38:28,567 [INFO   ] DbStratTable : update called
+2024-10-01 19:38:28,568 [INFO   ] DbConfigTable : update called
+2024-10-01 19:38:28,569 [INFO   ] DbRawTable : update called
+2024-10-01 19:38:28,571 [INFO   ] DbParamTable : update called
+2024-10-01 19:38:28,572 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:38:28,573 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:38:34,538 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:38:35,104 [INFO   ] Fitting done, took 0.564708948135376
+2024-10-01 19:38:45,152 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:38:47,338 [INFO   ] Fitting done, took 2.185994863510132
+2024-10-01 19:38:53,902 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:38:54,923 [INFO   ] Fitting done, took 1.020874261856079
+2024-10-01 19:39:06,815 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:39:08,305 [INFO   ] Fitting done, took 1.4893958568572998
+2024-10-01 19:39:15,315 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:39:17,048 [INFO   ] Fitting done, took 1.7334868907928467
+2024-10-01 19:39:38,987 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:39:39,024 [INFO   ] DBMasterTable : update called
+2024-10-01 19:39:39,034 [INFO   ] DbReplayTable : update called
+2024-10-01 19:39:39,037 [INFO   ] DbStratTable : update called
+2024-10-01 19:39:39,038 [INFO   ] DbConfigTable : update called
+2024-10-01 19:39:39,040 [INFO   ] DbRawTable : update called
+2024-10-01 19:39:39,042 [INFO   ] DbParamTable : update called
+2024-10-01 19:39:39,044 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:39:39,045 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:39:47,180 [INFO   ] DBMasterTable : update called
+2024-10-01 19:39:47,184 [INFO   ] DbReplayTable : update called
+2024-10-01 19:39:47,188 [INFO   ] DbStratTable : update called
+2024-10-01 19:39:47,189 [INFO   ] DbConfigTable : update called
+2024-10-01 19:39:47,189 [INFO   ] DbRawTable : update called
+2024-10-01 19:39:47,192 [INFO   ] DbParamTable : update called
+2024-10-01 19:39:47,192 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:39:47,193 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:39:51,083 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:39:51,604 [INFO   ] Fitting done, took 0.5207483768463135
+2024-10-01 19:39:57,086 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:39:58,294 [INFO   ] Fitting done, took 1.207510232925415
+2024-10-01 19:40:04,771 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:40:05,278 [INFO   ] Fitting done, took 0.5067236423492432
+2024-10-01 19:40:09,528 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:40:10,621 [INFO   ] Fitting done, took 1.0929889678955078
+2024-10-01 19:40:16,406 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:40:16,928 [INFO   ] Fitting done, took 0.5222153663635254
+2024-10-01 19:40:20,706 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:40:21,346 [INFO   ] Fitting done, took 0.6396980285644531
+2024-10-01 19:40:24,630 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:40:25,690 [INFO   ] Fitting done, took 1.0600371360778809
+2024-10-01 19:41:38,285 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-01 19:41:38,315 [INFO   ] DBMasterTable : update called
+2024-10-01 19:41:38,322 [INFO   ] DbReplayTable : update called
+2024-10-01 19:41:38,325 [INFO   ] DbStratTable : update called
+2024-10-01 19:41:38,326 [INFO   ] DbConfigTable : update called
+2024-10-01 19:41:38,326 [INFO   ] DbRawTable : update called
+2024-10-01 19:41:38,329 [INFO   ] DbParamTable : update called
+2024-10-01 19:41:38,329 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:41:38,330 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:42:15,095 [INFO   ] DBMasterTable : update called
+2024-10-01 19:42:15,100 [INFO   ] DbReplayTable : update called
+2024-10-01 19:42:15,104 [INFO   ] DbStratTable : update called
+2024-10-01 19:42:15,105 [INFO   ] DbConfigTable : update called
+2024-10-01 19:42:15,106 [INFO   ] DbRawTable : update called
+2024-10-01 19:42:15,107 [INFO   ] DbParamTable : update called
+2024-10-01 19:42:15,109 [INFO   ] DbOutcomeTable : update called
+2024-10-01 19:42:15,109 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-01 19:42:19,524 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:20,041 [INFO   ] Fitting done, took 0.5166962146759033
+2024-10-01 19:42:22,912 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:22,963 [INFO   ] Fitting done, took 0.05015754699707031
+2024-10-01 19:42:25,382 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:25,443 [INFO   ] Fitting done, took 0.06165122985839844
+2024-10-01 19:42:28,033 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:28,059 [INFO   ] Fitting done, took 0.026517868041992188
+2024-10-01 19:42:30,705 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:30,731 [INFO   ] Fitting done, took 0.026453495025634766
+2024-10-01 19:42:33,562 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:33,583 [INFO   ] Fitting done, took 0.021570205688476562
+2024-10-01 19:42:35,890 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:35,910 [INFO   ] Fitting done, took 0.019951343536376953
+2024-10-01 19:42:38,779 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:38,801 [INFO   ] Fitting done, took 0.02161383628845215
+2024-10-01 19:42:45,479 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:42:48,009 [INFO   ] Fitting done, took 2.530122756958008
+2024-10-01 19:44:41,265 [INFO   ] Found DB at data_collection_analysis_tutorial.db, appending!
+2024-10-01 19:44:48,449 [INFO   ] Received msg [setup]
+2024-10-01 19:44:51,803 [INFO   ] Received msg [ask]
+2024-10-01 19:44:54,257 [INFO   ] Received msg [tell]
+2024-10-01 19:44:56,143 [INFO   ] Received msg [ask]
+2024-10-01 19:45:00,079 [INFO   ] Received msg [tell]
+2024-10-01 19:45:00,101 [INFO   ] Received msg [ask]
+2024-10-01 19:45:02,823 [INFO   ] Received msg [tell]
+2024-10-01 19:45:02,986 [INFO   ] Received msg [ask]
+2024-10-01 19:45:05,293 [INFO   ] Received msg [tell]
+2024-10-01 19:45:05,321 [INFO   ] Received msg [ask]
+2024-10-01 19:45:07,627 [INFO   ] Received msg [tell]
+2024-10-01 19:45:07,652 [INFO   ] Received msg [ask]
+2024-10-01 19:45:09,743 [INFO   ] Received msg [tell]
+2024-10-01 19:45:09,771 [INFO   ] Received msg [ask]
+2024-10-01 19:45:12,009 [INFO   ] Received msg [tell]
+2024-10-01 19:45:12,038 [INFO   ] Received msg [ask]
+2024-10-01 19:45:15,317 [INFO   ] Received msg [tell]
+2024-10-01 19:45:15,346 [INFO   ] Received msg [ask]
+2024-10-01 19:45:17,613 [INFO   ] Received msg [tell]
+2024-10-01 19:45:17,642 [INFO   ] Received msg [ask]
+2024-10-01 19:45:19,972 [INFO   ] Received msg [tell]
+2024-10-01 19:45:19,996 [INFO   ] Received msg [ask]
+2024-10-01 19:45:19,997 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:45:20,747 [INFO   ] Fitting done, took 0.7497012615203857
+2024-10-01 19:45:20,749 [INFO   ] Starting gen...
+2024-10-01 19:45:21,218 [INFO   ] Gen done, time=0.46746397018432617
+2024-10-01 19:45:24,079 [INFO   ] Received msg [tell]
+2024-10-01 19:45:24,102 [INFO   ] Received msg [ask]
+2024-10-01 19:45:24,103 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:24,223 [INFO   ] Fitting done, took 0.11953926086425781
+2024-10-01 19:45:24,224 [INFO   ] Starting gen...
+2024-10-01 19:45:24,943 [INFO   ] Gen done, time=0.7174961566925049
+2024-10-01 19:45:30,224 [INFO   ] Received msg [tell]
+2024-10-01 19:45:30,247 [INFO   ] Received msg [ask]
+2024-10-01 19:45:30,248 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:30,417 [INFO   ] Fitting done, took 0.16895270347595215
+2024-10-01 19:45:30,418 [INFO   ] Starting gen...
+2024-10-01 19:45:30,950 [INFO   ] Gen done, time=0.5304427146911621
+2024-10-01 19:45:36,500 [INFO   ] Received msg [tell]
+2024-10-01 19:45:36,527 [INFO   ] Received msg [ask]
+2024-10-01 19:45:36,528 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:36,698 [INFO   ] Fitting done, took 0.1698775291442871
+2024-10-01 19:45:36,699 [INFO   ] Starting gen...
+2024-10-01 19:45:37,396 [INFO   ] Gen done, time=0.6955769062042236
+2024-10-01 19:45:39,650 [INFO   ] Received msg [tell]
+2024-10-01 19:45:39,674 [INFO   ] Received msg [ask]
+2024-10-01 19:45:39,675 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:39,998 [INFO   ] Fitting done, took 0.3230452537536621
+2024-10-01 19:45:39,999 [INFO   ] Starting gen...
+2024-10-01 19:45:40,152 [INFO   ] Gen done, time=0.15128803253173828
+2024-10-01 19:45:42,743 [INFO   ] Received msg [tell]
+2024-10-01 19:45:42,777 [INFO   ] Received msg [ask]
+2024-10-01 19:45:42,778 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:45:42,947 [INFO   ] Fitting done, took 0.16950607299804688
+2024-10-01 19:45:42,949 [INFO   ] Starting gen...
+2024-10-01 19:45:43,029 [INFO   ] Gen done, time=0.08025765419006348
+2024-10-01 19:45:45,387 [INFO   ] Received msg [tell]
+2024-10-01 19:45:45,416 [INFO   ] Received msg [ask]
+2024-10-01 19:45:45,417 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:45,554 [INFO   ] Fitting done, took 0.13729500770568848
+2024-10-01 19:45:45,555 [INFO   ] Starting gen...
+2024-10-01 19:45:45,613 [INFO   ] Gen done, time=0.0569455623626709
+2024-10-01 19:45:47,808 [INFO   ] Received msg [tell]
+2024-10-01 19:45:47,831 [INFO   ] Received msg [ask]
+2024-10-01 19:45:47,832 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:48,076 [INFO   ] Fitting done, took 0.24338960647583008
+2024-10-01 19:45:48,077 [INFO   ] Starting gen...
+2024-10-01 19:45:48,168 [INFO   ] Gen done, time=0.09063100814819336
+2024-10-01 19:45:50,282 [INFO   ] Received msg [tell]
+2024-10-01 19:45:50,312 [INFO   ] Received msg [ask]
+2024-10-01 19:45:50,313 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:50,523 [INFO   ] Fitting done, took 0.2097184658050537
+2024-10-01 19:45:50,524 [INFO   ] Starting gen...
+2024-10-01 19:45:50,612 [INFO   ] Gen done, time=0.08865475654602051
+2024-10-01 19:45:52,721 [INFO   ] Received msg [tell]
+2024-10-01 19:45:52,750 [INFO   ] Received msg [ask]
+2024-10-01 19:45:52,751 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:52,857 [INFO   ] Fitting done, took 0.10539102554321289
+2024-10-01 19:45:52,858 [INFO   ] Starting gen...
+2024-10-01 19:45:52,926 [INFO   ] Gen done, time=0.06756067276000977
+2024-10-01 19:45:55,174 [INFO   ] Received msg [tell]
+2024-10-01 19:45:55,197 [INFO   ] Received msg [ask]
+2024-10-01 19:45:55,198 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:45:55,569 [INFO   ] Fitting done, took 0.3712608814239502
+2024-10-01 19:45:55,570 [INFO   ] Starting gen...
+2024-10-01 19:45:55,667 [INFO   ] Gen done, time=0.09657955169677734
+2024-10-01 19:45:58,156 [INFO   ] Received msg [tell]
+2024-10-01 19:45:58,183 [INFO   ] Received msg [ask]
+2024-10-01 19:45:58,184 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:45:58,328 [INFO   ] Fitting done, took 0.14412784576416016
+2024-10-01 19:45:58,329 [INFO   ] Starting gen...
+2024-10-01 19:45:58,385 [INFO   ] Gen done, time=0.054947853088378906
+2024-10-01 19:46:02,032 [INFO   ] Received msg [tell]
+2024-10-01 19:46:02,054 [INFO   ] Received msg [ask]
+2024-10-01 19:46:02,055 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:02,245 [INFO   ] Fitting done, took 0.18867921829223633
+2024-10-01 19:46:02,246 [INFO   ] Starting gen...
+2024-10-01 19:46:02,324 [INFO   ] Gen done, time=0.07733535766601562
+2024-10-01 19:46:08,424 [INFO   ] Received msg [tell]
+2024-10-01 19:46:08,452 [INFO   ] Received msg [ask]
+2024-10-01 19:46:08,453 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:08,623 [INFO   ] Fitting done, took 0.16984796524047852
+2024-10-01 19:46:08,625 [INFO   ] Starting gen...
+2024-10-01 19:46:08,700 [INFO   ] Gen done, time=0.0742189884185791
+2024-10-01 19:46:12,518 [INFO   ] Received msg [tell]
+2024-10-01 19:46:12,546 [INFO   ] Received msg [ask]
+2024-10-01 19:46:12,546 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:12,681 [INFO   ] Fitting done, took 0.1350104808807373
+2024-10-01 19:46:12,683 [INFO   ] Starting gen...
+2024-10-01 19:46:12,746 [INFO   ] Gen done, time=0.06284022331237793
+2024-10-01 19:46:15,510 [INFO   ] Received msg [tell]
+2024-10-01 19:46:15,532 [INFO   ] Received msg [ask]
+2024-10-01 19:46:15,533 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:46:15,729 [INFO   ] Fitting done, took 0.19593000411987305
+2024-10-01 19:46:15,730 [INFO   ] Starting gen...
+2024-10-01 19:46:15,827 [INFO   ] Gen done, time=0.09572720527648926
+2024-10-01 19:46:17,967 [INFO   ] Received msg [tell]
+2024-10-01 19:46:17,989 [INFO   ] Received msg [ask]
+2024-10-01 19:46:17,991 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:18,131 [INFO   ] Fitting done, took 0.14074301719665527
+2024-10-01 19:46:18,133 [INFO   ] Starting gen...
+2024-10-01 19:46:18,224 [INFO   ] Gen done, time=0.09111571311950684
+2024-10-01 19:46:20,475 [INFO   ] Received msg [tell]
+2024-10-01 19:46:20,502 [INFO   ] Received msg [ask]
+2024-10-01 19:46:20,503 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:20,674 [INFO   ] Fitting done, took 0.17017030715942383
+2024-10-01 19:46:20,675 [INFO   ] Starting gen...
+2024-10-01 19:46:20,742 [INFO   ] Gen done, time=0.06600236892700195
+2024-10-01 19:46:22,978 [INFO   ] Received msg [tell]
+2024-10-01 19:46:23,000 [INFO   ] Received msg [ask]
+2024-10-01 19:46:23,002 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:23,170 [INFO   ] Fitting done, took 0.16808485984802246
+2024-10-01 19:46:23,171 [INFO   ] Starting gen...
+2024-10-01 19:46:23,250 [INFO   ] Gen done, time=0.07860636711120605
+2024-10-01 19:46:25,458 [INFO   ] Received msg [tell]
+2024-10-01 19:46:25,485 [INFO   ] Received msg [ask]
+2024-10-01 19:46:25,487 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:25,646 [INFO   ] Fitting done, took 0.15932679176330566
+2024-10-01 19:46:25,647 [INFO   ] Starting gen...
+2024-10-01 19:46:25,726 [INFO   ] Gen done, time=0.07782578468322754
+2024-10-01 19:46:27,931 [INFO   ] Received msg [tell]
+2024-10-01 19:46:27,954 [INFO   ] Received msg [ask]
+2024-10-01 19:46:27,955 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:46:28,199 [INFO   ] Fitting done, took 0.24450969696044922
+2024-10-01 19:46:28,201 [INFO   ] Starting gen...
+2024-10-01 19:46:28,282 [INFO   ] Gen done, time=0.0806264877319336
+2024-10-01 19:46:30,476 [INFO   ] Received msg [tell]
+2024-10-01 19:46:30,497 [INFO   ] Received msg [ask]
+2024-10-01 19:46:30,498 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:30,651 [INFO   ] Fitting done, took 0.15310311317443848
+2024-10-01 19:46:30,652 [INFO   ] Starting gen...
+2024-10-01 19:46:30,759 [INFO   ] Gen done, time=0.10566377639770508
+2024-10-01 19:46:33,201 [INFO   ] Received msg [tell]
+2024-10-01 19:46:33,224 [INFO   ] Received msg [ask]
+2024-10-01 19:46:33,225 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:33,360 [INFO   ] Fitting done, took 0.13505029678344727
+2024-10-01 19:46:33,361 [INFO   ] Starting gen...
+2024-10-01 19:46:33,457 [INFO   ] Gen done, time=0.09493708610534668
+2024-10-01 19:46:35,586 [INFO   ] Received msg [tell]
+2024-10-01 19:46:35,614 [INFO   ] Received msg [ask]
+2024-10-01 19:46:35,615 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:35,760 [INFO   ] Fitting done, took 0.1450977325439453
+2024-10-01 19:46:35,761 [INFO   ] Starting gen...
+2024-10-01 19:46:35,862 [INFO   ] Gen done, time=0.10059475898742676
+2024-10-01 19:46:38,301 [INFO   ] Received msg [tell]
+2024-10-01 19:46:38,326 [INFO   ] Received msg [ask]
+2024-10-01 19:46:38,327 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:38,562 [INFO   ] Fitting done, took 0.23522615432739258
+2024-10-01 19:46:38,563 [INFO   ] Starting gen...
+2024-10-01 19:46:38,622 [INFO   ] Gen done, time=0.05830097198486328
+2024-10-01 19:46:40,770 [INFO   ] Received msg [tell]
+2024-10-01 19:46:40,798 [INFO   ] Received msg [ask]
+2024-10-01 19:46:40,800 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:46:41,058 [INFO   ] Fitting done, took 0.25852155685424805
+2024-10-01 19:46:41,060 [INFO   ] Starting gen...
+2024-10-01 19:46:41,137 [INFO   ] Gen done, time=0.07729625701904297
+2024-10-01 19:46:43,268 [INFO   ] Received msg [tell]
+2024-10-01 19:46:43,298 [INFO   ] Received msg [ask]
+2024-10-01 19:46:43,299 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:43,473 [INFO   ] Fitting done, took 0.17406797409057617
+2024-10-01 19:46:43,474 [INFO   ] Starting gen...
+2024-10-01 19:46:43,565 [INFO   ] Gen done, time=0.08966302871704102
+2024-10-01 19:46:45,689 [INFO   ] Received msg [tell]
+2024-10-01 19:46:45,718 [INFO   ] Received msg [ask]
+2024-10-01 19:46:45,719 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:45,866 [INFO   ] Fitting done, took 0.14699482917785645
+2024-10-01 19:46:45,867 [INFO   ] Starting gen...
+2024-10-01 19:46:45,947 [INFO   ] Gen done, time=0.0793755054473877
+2024-10-01 19:46:48,468 [INFO   ] Received msg [tell]
+2024-10-01 19:46:48,498 [INFO   ] Received msg [ask]
+2024-10-01 19:46:48,499 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:48,667 [INFO   ] Fitting done, took 0.16747617721557617
+2024-10-01 19:46:48,668 [INFO   ] Starting gen...
+2024-10-01 19:46:48,726 [INFO   ] Gen done, time=0.05738472938537598
+2024-10-01 19:46:51,214 [INFO   ] Received msg [tell]
+2024-10-01 19:46:51,243 [INFO   ] Received msg [ask]
+2024-10-01 19:46:51,244 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:51,518 [INFO   ] Fitting done, took 0.2740356922149658
+2024-10-01 19:46:51,519 [INFO   ] Starting gen...
+2024-10-01 19:46:51,577 [INFO   ] Gen done, time=0.05571436882019043
+2024-10-01 19:46:53,954 [INFO   ] Received msg [tell]
+2024-10-01 19:46:53,983 [INFO   ] Received msg [ask]
+2024-10-01 19:46:53,983 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:46:54,361 [INFO   ] Fitting done, took 0.3784627914428711
+2024-10-01 19:46:54,362 [INFO   ] Starting gen...
+2024-10-01 19:46:54,443 [INFO   ] Gen done, time=0.08000373840332031
+2024-10-01 19:46:56,569 [INFO   ] Received msg [tell]
+2024-10-01 19:46:56,600 [INFO   ] Received msg [ask]
+2024-10-01 19:46:56,601 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:56,801 [INFO   ] Fitting done, took 0.20016860961914062
+2024-10-01 19:46:56,802 [INFO   ] Starting gen...
+2024-10-01 19:46:56,867 [INFO   ] Gen done, time=0.06399345397949219
+2024-10-01 19:46:59,152 [INFO   ] Received msg [tell]
+2024-10-01 19:46:59,175 [INFO   ] Received msg [ask]
+2024-10-01 19:46:59,176 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:46:59,820 [INFO   ] Fitting done, took 0.6443455219268799
+2024-10-01 19:46:59,821 [INFO   ] Starting gen...
+2024-10-01 19:47:00,439 [INFO   ] Gen done, time=0.6169383525848389
+2024-10-01 19:47:02,596 [INFO   ] Received msg [tell]
+2024-10-01 19:47:02,624 [INFO   ] Received msg [ask]
+2024-10-01 19:47:02,625 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:47:03,225 [INFO   ] Fitting done, took 0.6005592346191406
+2024-10-01 19:47:03,226 [INFO   ] Starting gen...
+2024-10-01 19:47:03,955 [INFO   ] Gen done, time=0.7275881767272949
+2024-10-01 19:47:06,121 [INFO   ] Received msg [tell]
+2024-10-01 19:47:06,143 [INFO   ] Received msg [ask]
+2024-10-01 19:47:06,145 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:47:06,510 [INFO   ] Fitting done, took 0.3652043342590332
+2024-10-01 19:47:06,511 [INFO   ] Starting gen...
+2024-10-01 19:47:07,137 [INFO   ] Gen done, time=0.6250932216644287
+2024-10-01 19:47:09,292 [INFO   ] Received msg [tell]
+2024-10-01 19:47:09,321 [INFO   ] Received msg [ask]
+2024-10-01 19:47:09,322 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:47:10,268 [INFO   ] Fitting done, took 0.9463083744049072
+2024-10-01 19:47:10,269 [INFO   ] Starting gen...
+2024-10-01 19:47:11,422 [INFO   ] Gen done, time=1.1513850688934326
+2024-10-01 19:47:13,607 [INFO   ] Received msg [tell]
+2024-10-01 19:47:13,634 [INFO   ] Received msg [ask]
+2024-10-01 19:47:13,635 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:47:14,246 [INFO   ] Fitting done, took 0.610058069229126
+2024-10-01 19:47:14,246 [INFO   ] Starting gen...
+2024-10-01 19:47:15,151 [INFO   ] Gen done, time=0.9027564525604248
+2024-10-01 19:47:17,247 [INFO   ] Received msg [tell]
+2024-10-01 19:47:17,274 [INFO   ] Received msg [ask]
+2024-10-01 19:47:17,275 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:47:17,484 [INFO   ] Fitting done, took 0.20842623710632324
+2024-10-01 19:47:17,485 [INFO   ] Starting gen...
+2024-10-01 19:47:18,068 [INFO   ] Gen done, time=0.5830826759338379
+2024-10-01 19:47:20,194 [INFO   ] Received msg [tell]
+2024-10-01 19:47:20,222 [INFO   ] Received msg [ask]
+2024-10-01 19:47:20,223 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:47:20,353 [INFO   ] Fitting done, took 0.12968778610229492
+2024-10-01 19:47:20,354 [INFO   ] Starting gen...
+2024-10-01 19:47:20,884 [INFO   ] Gen done, time=0.5288796424865723
+2024-10-01 19:47:23,035 [INFO   ] Received msg [tell]
+2024-10-01 19:47:23,058 [INFO   ] Received msg [ask]
+2024-10-01 19:47:23,059 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:47:23,654 [INFO   ] Fitting done, took 0.5946252346038818
+2024-10-01 19:47:23,655 [INFO   ] Starting gen...
+2024-10-01 19:47:25,492 [INFO   ] Gen done, time=1.8366024494171143
+2024-10-01 19:47:27,840 [INFO   ] Received msg [tell]
+2024-10-01 19:47:27,864 [INFO   ] Recording strat because the experiment is complete.
+2024-10-01 19:47:27,884 [INFO   ] Received msg [ask]
+2024-10-01 19:47:27,885 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:47:28,647 [INFO   ] Fitting done, took 0.7619249820709229
+2024-10-01 19:47:28,648 [INFO   ] Starting gen...
+2024-10-01 19:47:30,145 [INFO   ] Gen done, time=1.496006727218628
+2024-10-01 19:47:33,075 [INFO   ] Received msg [tell]
+2024-10-01 19:47:33,099 [INFO   ] Recording strat because the experiment is complete.
+2024-10-01 19:47:38,221 [INFO   ] Received msg [ask]
+2024-10-01 19:47:38,222 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:47:38,378 [INFO   ] Fitting done, took 0.15591216087341309
+2024-10-01 19:47:38,380 [INFO   ] Starting gen...
+2024-10-01 19:47:39,213 [INFO   ] Gen done, time=0.8324744701385498
+2024-10-01 19:47:48,516 [INFO   ] Received msg [tell]
+2024-10-01 19:47:48,540 [INFO   ] Recording strat because the experiment is complete.
+2024-10-01 19:47:52,305 [INFO   ] Received msg [exit]
+2024-10-01 19:47:52,307 [INFO   ] Got termination message!
+2024-10-01 19:47:52,308 [INFO   ] Dumping strats to DB due to Normal termination.
+2024-10-01 19:47:58,832 [INFO   ] Found DB at data_collection_analysis_tutorial.db, appending!
+2024-10-01 19:48:07,029 [INFO   ] skip_computations=True, make sure to refit the final strat before doing anything!
+2024-10-01 19:48:07,035 [INFO   ] Received msg [setup]
+2024-10-01 19:48:07,049 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,051 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,053 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,055 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,057 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,058 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,061 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,062 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,063 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,064 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,066 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,067 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,069 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,070 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,071 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,072 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,073 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,075 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,076 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,078 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,079 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,080 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,082 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,084 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,086 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,088 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,090 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,091 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,093 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,095 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,096 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,097 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,100 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,103 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,105 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,107 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,109 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,110 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,113 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,115 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,117 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,119 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,120 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,122 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,123 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,125 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,128 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,129 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,131 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,133 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,134 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,135 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,138 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,140 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,142 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,143 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,145 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,147 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,150 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,152 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,154 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,156 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,157 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,158 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,160 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,162 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,164 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,165 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,167 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,170 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,171 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,172 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,174 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,176 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,178 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,181 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,183 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,185 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,189 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,192 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,195 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,200 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,204 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,206 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,208 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,211 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,213 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,215 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,217 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,219 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,221 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,223 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,226 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,228 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,230 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,232 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,234 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,237 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,238 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,240 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,241 [INFO   ] Recording strat because the experiment is complete.
+2024-10-01 19:48:07,262 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,264 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,265 [INFO   ] Recording strat because the experiment is complete.
+2024-10-01 19:48:07,282 [INFO   ] Received msg [ask]
+2024-10-01 19:48:07,284 [INFO   ] Received msg [tell]
+2024-10-01 19:48:07,285 [INFO   ] Recording strat because the experiment is complete.
+2024-10-01 19:49:08,912 [INFO   ] No DB found at pairwise_example.db, creating a new DB!
+2024-10-01 19:49:08,961 [INFO   ] Received msg [setup]
+2024-10-01 19:49:13,755 [INFO   ] Received msg [ask]
+2024-10-01 19:49:13,764 [INFO   ] Received msg [tell]
+2024-10-01 19:49:13,805 [INFO   ] Received msg [ask]
+2024-10-01 19:49:13,812 [INFO   ] Received msg [tell]
+2024-10-01 19:49:13,848 [INFO   ] Received msg [ask]
+2024-10-01 19:49:13,854 [INFO   ] Received msg [tell]
+2024-10-01 19:49:13,891 [INFO   ] Received msg [ask]
+2024-10-01 19:49:13,897 [INFO   ] Received msg [tell]
+2024-10-01 19:49:13,932 [INFO   ] Received msg [ask]
+2024-10-01 19:49:13,940 [INFO   ] Received msg [tell]
+2024-10-01 19:49:13,976 [INFO   ] Received msg [ask]
+2024-10-01 19:49:13,982 [INFO   ] Received msg [tell]
+2024-10-01 19:49:14,019 [INFO   ] Received msg [ask]
+2024-10-01 19:49:14,026 [INFO   ] Received msg [tell]
+2024-10-01 19:49:14,060 [INFO   ] Received msg [ask]
+2024-10-01 19:49:14,067 [INFO   ] Received msg [tell]
+2024-10-01 19:49:14,101 [INFO   ] Received msg [ask]
+2024-10-01 19:49:14,107 [INFO   ] Received msg [tell]
+2024-10-01 19:49:14,144 [INFO   ] Received msg [ask]
+2024-10-01 19:49:14,150 [INFO   ] Received msg [tell]
+2024-10-01 19:49:14,185 [INFO   ] Received msg [ask]
+2024-10-01 19:49:14,186 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:49:14,207 [INFO   ] Starting fit...
+2024-10-01 19:49:14,641 [INFO   ] Fit done, time=0.43411684036254883
+2024-10-01 19:49:14,642 [INFO   ] Fitting done, took 0.4556713104248047
+2024-10-01 19:49:14,656 [INFO   ] Starting gen...
+2024-10-01 19:49:14,922 [INFO   ] Gen done, time=0.2654879093170166
+2024-10-01 19:49:14,930 [INFO   ] Received msg [tell]
+2024-10-01 19:49:14,973 [INFO   ] Received msg [ask]
+2024-10-01 19:49:14,974 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:14,986 [INFO   ] Starting fit...
+2024-10-01 19:49:15,166 [INFO   ] Fit done, time=0.17842960357666016
+2024-10-01 19:49:15,167 [INFO   ] Fitting done, took 0.1926252841949463
+2024-10-01 19:49:15,173 [INFO   ] Starting gen...
+2024-10-01 19:49:15,414 [INFO   ] Gen done, time=0.24004006385803223
+2024-10-01 19:49:15,422 [INFO   ] Received msg [tell]
+2024-10-01 19:49:15,461 [INFO   ] Received msg [ask]
+2024-10-01 19:49:15,462 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:15,470 [INFO   ] Starting fit...
+2024-10-01 19:49:15,723 [INFO   ] Fit done, time=0.2514955997467041
+2024-10-01 19:49:15,724 [INFO   ] Fitting done, took 0.261704683303833
+2024-10-01 19:49:15,732 [INFO   ] Starting gen...
+2024-10-01 19:49:16,002 [INFO   ] Gen done, time=0.26921939849853516
+2024-10-01 19:49:16,014 [INFO   ] Received msg [tell]
+2024-10-01 19:49:16,053 [INFO   ] Received msg [ask]
+2024-10-01 19:49:16,055 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:16,064 [INFO   ] Starting fit...
+2024-10-01 19:49:16,180 [INFO   ] Fit done, time=0.11464357376098633
+2024-10-01 19:49:16,181 [INFO   ] Fitting done, took 0.1256394386291504
+2024-10-01 19:49:16,186 [INFO   ] Starting gen...
+2024-10-01 19:49:17,104 [INFO   ] Gen done, time=0.9171407222747803
+2024-10-01 19:49:17,116 [INFO   ] Received msg [tell]
+2024-10-01 19:49:17,154 [INFO   ] Received msg [ask]
+2024-10-01 19:49:17,155 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:17,165 [INFO   ] Starting fit...
+2024-10-01 19:49:17,326 [INFO   ] Fit done, time=0.15976381301879883
+2024-10-01 19:49:17,327 [INFO   ] Fitting done, took 0.17175984382629395
+2024-10-01 19:49:17,333 [INFO   ] Starting gen...
+2024-10-01 19:49:17,837 [INFO   ] Gen done, time=0.5025539398193359
+2024-10-01 19:49:17,852 [INFO   ] Received msg [tell]
+2024-10-01 19:49:17,912 [INFO   ] Received msg [ask]
+2024-10-01 19:49:17,913 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:49:17,927 [INFO   ] Starting fit...
+2024-10-01 19:49:18,092 [INFO   ] Fit done, time=0.16414380073547363
+2024-10-01 19:49:18,093 [INFO   ] Fitting done, took 0.17978334426879883
+2024-10-01 19:49:18,100 [INFO   ] Starting gen...
+2024-10-01 19:49:18,734 [INFO   ] Gen done, time=0.6335594654083252
+2024-10-01 19:49:18,747 [INFO   ] Received msg [tell]
+2024-10-01 19:49:18,787 [INFO   ] Received msg [ask]
+2024-10-01 19:49:18,788 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:18,799 [INFO   ] Starting fit...
+2024-10-01 19:49:18,914 [INFO   ] Fit done, time=0.11374211311340332
+2024-10-01 19:49:18,915 [INFO   ] Fitting done, took 0.1267414093017578
+2024-10-01 19:49:18,921 [INFO   ] Starting gen...
+2024-10-01 19:49:19,111 [INFO   ] Gen done, time=0.18925166130065918
+2024-10-01 19:49:19,124 [INFO   ] Received msg [tell]
+2024-10-01 19:49:19,162 [INFO   ] Received msg [ask]
+2024-10-01 19:49:19,164 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:19,173 [INFO   ] Starting fit...
+2024-10-01 19:49:19,285 [INFO   ] Fit done, time=0.11097502708435059
+2024-10-01 19:49:19,286 [INFO   ] Fitting done, took 0.12197041511535645
+2024-10-01 19:49:19,292 [INFO   ] Starting gen...
+2024-10-01 19:49:19,826 [INFO   ] Gen done, time=0.5329680442810059
+2024-10-01 19:49:19,839 [INFO   ] Received msg [tell]
+2024-10-01 19:49:19,881 [INFO   ] Received msg [ask]
+2024-10-01 19:49:19,882 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:19,896 [INFO   ] Starting fit...
+2024-10-01 19:49:20,166 [INFO   ] Fit done, time=0.26955342292785645
+2024-10-01 19:49:20,167 [INFO   ] Fitting done, took 0.28507423400878906
+2024-10-01 19:49:20,174 [INFO   ] Starting gen...
+2024-10-01 19:49:20,330 [INFO   ] Gen done, time=0.1556863784790039
+2024-10-01 19:49:20,338 [INFO   ] Received msg [tell]
+2024-10-01 19:49:20,377 [INFO   ] Received msg [ask]
+2024-10-01 19:49:20,378 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:20,388 [INFO   ] Starting fit...
+2024-10-01 19:49:20,500 [INFO   ] Fit done, time=0.11125802993774414
+2024-10-01 19:49:20,501 [INFO   ] Fitting done, took 0.1227564811706543
+2024-10-01 19:49:20,507 [INFO   ] Starting gen...
+2024-10-01 19:49:20,651 [INFO   ] Gen done, time=0.14233684539794922
+2024-10-01 19:49:20,664 [INFO   ] Received msg [tell]
+2024-10-01 19:49:20,702 [INFO   ] Received msg [ask]
+2024-10-01 19:49:20,703 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:49:20,713 [INFO   ] Starting fit...
+2024-10-01 19:49:20,816 [INFO   ] Fit done, time=0.10238265991210938
+2024-10-01 19:49:20,817 [INFO   ] Fitting done, took 0.11427593231201172
+2024-10-01 19:49:20,822 [INFO   ] Starting gen...
+2024-10-01 19:49:21,207 [INFO   ] Gen done, time=0.3834223747253418
+2024-10-01 19:49:21,219 [INFO   ] Received msg [tell]
+2024-10-01 19:49:21,263 [INFO   ] Received msg [ask]
+2024-10-01 19:49:21,264 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:21,277 [INFO   ] Starting fit...
+2024-10-01 19:49:21,476 [INFO   ] Fit done, time=0.19801735877990723
+2024-10-01 19:49:21,477 [INFO   ] Fitting done, took 0.21225476264953613
+2024-10-01 19:49:21,484 [INFO   ] Starting gen...
+2024-10-01 19:49:21,642 [INFO   ] Gen done, time=0.1566004753112793
+2024-10-01 19:49:21,650 [INFO   ] Received msg [tell]
+2024-10-01 19:49:21,688 [INFO   ] Received msg [ask]
+2024-10-01 19:49:21,689 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:21,699 [INFO   ] Starting fit...
+2024-10-01 19:49:21,797 [INFO   ] Fit done, time=0.0971517562866211
+2024-10-01 19:49:21,798 [INFO   ] Fitting done, took 0.10904264450073242
+2024-10-01 19:49:21,809 [INFO   ] Starting gen...
+2024-10-01 19:49:21,988 [INFO   ] Gen done, time=0.17762279510498047
+2024-10-01 19:49:22,001 [INFO   ] Received msg [tell]
+2024-10-01 19:49:22,039 [INFO   ] Received msg [ask]
+2024-10-01 19:49:22,040 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:22,051 [INFO   ] Starting fit...
+2024-10-01 19:49:22,301 [INFO   ] Fit done, time=0.24958372116088867
+2024-10-01 19:49:22,302 [INFO   ] Fitting done, took 0.26158714294433594
+2024-10-01 19:49:22,310 [INFO   ] Starting gen...
+2024-10-01 19:49:22,529 [INFO   ] Gen done, time=0.21823358535766602
+2024-10-01 19:49:22,536 [INFO   ] Received msg [tell]
+2024-10-01 19:49:22,574 [INFO   ] Received msg [ask]
+2024-10-01 19:49:22,576 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:22,586 [INFO   ] Starting fit...
+2024-10-01 19:49:22,762 [INFO   ] Fit done, time=0.17539191246032715
+2024-10-01 19:49:22,763 [INFO   ] Fitting done, took 0.1874232292175293
+2024-10-01 19:49:22,768 [INFO   ] Starting gen...
+2024-10-01 19:49:22,915 [INFO   ] Gen done, time=0.1451416015625
+2024-10-01 19:49:22,927 [INFO   ] Received msg [tell]
+2024-10-01 19:49:22,968 [INFO   ] Received msg [ask]
+2024-10-01 19:49:22,969 [INFO   ] Starting fitting (no warm start)...
+2024-10-01 19:49:22,980 [INFO   ] Starting fit...
+2024-10-01 19:49:23,116 [INFO   ] Fit done, time=0.1351790428161621
+2024-10-01 19:49:23,117 [INFO   ] Fitting done, took 0.14805364608764648
+2024-10-01 19:49:23,124 [INFO   ] Starting gen...
+2024-10-01 19:49:23,393 [INFO   ] Gen done, time=0.2685587406158447
+2024-10-01 19:49:23,401 [INFO   ] Received msg [tell]
+2024-10-01 19:49:23,440 [INFO   ] Received msg [ask]
+2024-10-01 19:49:23,441 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:23,456 [INFO   ] Starting fit...
+2024-10-01 19:49:23,740 [INFO   ] Fit done, time=0.2830173969268799
+2024-10-01 19:49:23,741 [INFO   ] Fitting done, took 0.30017852783203125
+2024-10-01 19:49:23,748 [INFO   ] Starting gen...
+2024-10-01 19:49:23,893 [INFO   ] Gen done, time=0.14351797103881836
+2024-10-01 19:49:23,900 [INFO   ] Received msg [tell]
+2024-10-01 19:49:23,936 [INFO   ] Received msg [ask]
+2024-10-01 19:49:23,937 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:23,947 [INFO   ] Starting fit...
+2024-10-01 19:49:24,184 [INFO   ] Fit done, time=0.2362196445465088
+2024-10-01 19:49:24,185 [INFO   ] Fitting done, took 0.2472219467163086
+2024-10-01 19:49:24,191 [INFO   ] Starting gen...
+2024-10-01 19:49:24,356 [INFO   ] Gen done, time=0.16454720497131348
+2024-10-01 19:49:24,362 [INFO   ] Received msg [tell]
+2024-10-01 19:49:24,400 [INFO   ] Received msg [ask]
+2024-10-01 19:49:24,401 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:24,412 [INFO   ] Starting fit...
+2024-10-01 19:49:24,787 [INFO   ] Fit done, time=0.37337779998779297
+2024-10-01 19:49:24,788 [INFO   ] Fitting done, took 0.3864469528198242
+2024-10-01 19:49:24,795 [INFO   ] Starting gen...
+2024-10-01 19:49:24,928 [INFO   ] Gen done, time=0.13189458847045898
+2024-10-01 19:49:24,937 [INFO   ] Received msg [tell]
+2024-10-01 19:49:24,976 [INFO   ] Received msg [ask]
+2024-10-01 19:49:24,977 [INFO   ] Starting fitting (warm start)...
+2024-10-01 19:49:24,987 [INFO   ] Starting fit...
+2024-10-01 19:49:26,373 [INFO   ] Fit done, time=1.3851268291473389
+2024-10-01 19:49:26,374 [INFO   ] Fitting done, took 1.3971288204193115
+2024-10-01 19:49:26,380 [INFO   ] Starting gen...
+2024-10-01 19:49:26,620 [INFO   ] Gen done, time=0.23925447463989258
+2024-10-01 19:49:26,634 [INFO   ] Received msg [tell]
+2024-10-01 19:49:26,676 [INFO   ] Recording strat because the experiment is complete.
+2024-10-01 19:49:26,703 [INFO   ] Received msg [exit]
+2024-10-01 19:49:26,704 [INFO   ] Got termination message!
+2024-10-01 19:49:26,705 [INFO   ] Dumping strats to DB due to Normal termination.
+2024-10-04 16:55:08,963 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 16:55:09,151 [INFO   ] DBMasterTable : update called
+2024-10-04 16:55:09,160 [INFO   ] DbReplayTable : update called
+2024-10-04 16:55:09,170 [INFO   ] DbStratTable : update called
+2024-10-04 16:55:09,172 [INFO   ] DbConfigTable : update called
+2024-10-04 16:55:09,173 [INFO   ] DbRawTable : update called
+2024-10-04 16:55:09,186 [INFO   ] DbParamTable : update called
+2024-10-04 16:55:09,188 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:55:09,190 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:55:15,160 [INFO   ] DBMasterTable : update called
+2024-10-04 16:55:15,168 [INFO   ] DbReplayTable : update called
+2024-10-04 16:55:15,179 [INFO   ] DbStratTable : update called
+2024-10-04 16:55:15,181 [INFO   ] DbConfigTable : update called
+2024-10-04 16:55:15,183 [INFO   ] DbRawTable : update called
+2024-10-04 16:55:15,189 [INFO   ] DbParamTable : update called
+2024-10-04 16:55:15,190 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:55:15,193 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:55:48,454 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 16:55:48,578 [INFO   ] DBMasterTable : update called
+2024-10-04 16:55:48,595 [INFO   ] DbReplayTable : update called
+2024-10-04 16:55:48,605 [INFO   ] DbStratTable : update called
+2024-10-04 16:55:48,607 [INFO   ] DbConfigTable : update called
+2024-10-04 16:55:48,608 [INFO   ] DbRawTable : update called
+2024-10-04 16:55:48,616 [INFO   ] DbParamTable : update called
+2024-10-04 16:55:48,617 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:55:48,619 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:55:53,490 [INFO   ] DBMasterTable : update called
+2024-10-04 16:55:53,498 [INFO   ] DbReplayTable : update called
+2024-10-04 16:55:53,509 [INFO   ] DbStratTable : update called
+2024-10-04 16:55:53,512 [INFO   ] DbConfigTable : update called
+2024-10-04 16:55:53,515 [INFO   ] DbRawTable : update called
+2024-10-04 16:55:53,519 [INFO   ] DbParamTable : update called
+2024-10-04 16:55:53,520 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:55:53,523 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:56:19,404 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 16:56:19,541 [INFO   ] DBMasterTable : update called
+2024-10-04 16:56:19,560 [INFO   ] DbReplayTable : update called
+2024-10-04 16:56:19,572 [INFO   ] DbStratTable : update called
+2024-10-04 16:56:19,574 [INFO   ] DbConfigTable : update called
+2024-10-04 16:56:19,577 [INFO   ] DbRawTable : update called
+2024-10-04 16:56:19,587 [INFO   ] DbParamTable : update called
+2024-10-04 16:56:19,590 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:56:19,591 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:56:25,933 [INFO   ] DBMasterTable : update called
+2024-10-04 16:56:25,943 [INFO   ] DbReplayTable : update called
+2024-10-04 16:56:25,954 [INFO   ] DbStratTable : update called
+2024-10-04 16:56:25,955 [INFO   ] DbConfigTable : update called
+2024-10-04 16:56:25,957 [INFO   ] DbRawTable : update called
+2024-10-04 16:56:25,961 [INFO   ] DbParamTable : update called
+2024-10-04 16:56:25,963 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:56:25,965 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:58:23,836 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 16:58:23,964 [INFO   ] DBMasterTable : update called
+2024-10-04 16:58:23,980 [INFO   ] DbReplayTable : update called
+2024-10-04 16:58:23,990 [INFO   ] DbStratTable : update called
+2024-10-04 16:58:23,993 [INFO   ] DbConfigTable : update called
+2024-10-04 16:58:23,995 [INFO   ] DbRawTable : update called
+2024-10-04 16:58:24,000 [INFO   ] DbParamTable : update called
+2024-10-04 16:58:24,002 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:58:24,003 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:58:26,873 [INFO   ] DBMasterTable : update called
+2024-10-04 16:58:26,881 [INFO   ] DbReplayTable : update called
+2024-10-04 16:58:26,892 [INFO   ] DbStratTable : update called
+2024-10-04 16:58:26,894 [INFO   ] DbConfigTable : update called
+2024-10-04 16:58:26,897 [INFO   ] DbRawTable : update called
+2024-10-04 16:58:26,901 [INFO   ] DbParamTable : update called
+2024-10-04 16:58:26,903 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:58:26,904 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:59:26,195 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 16:59:26,324 [INFO   ] DBMasterTable : update called
+2024-10-04 16:59:26,343 [INFO   ] DbReplayTable : update called
+2024-10-04 16:59:26,354 [INFO   ] DbStratTable : update called
+2024-10-04 16:59:26,356 [INFO   ] DbConfigTable : update called
+2024-10-04 16:59:26,357 [INFO   ] DbRawTable : update called
+2024-10-04 16:59:26,363 [INFO   ] DbParamTable : update called
+2024-10-04 16:59:26,366 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:59:26,376 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 16:59:36,386 [INFO   ] DBMasterTable : update called
+2024-10-04 16:59:36,395 [INFO   ] DbReplayTable : update called
+2024-10-04 16:59:36,407 [INFO   ] DbStratTable : update called
+2024-10-04 16:59:36,410 [INFO   ] DbConfigTable : update called
+2024-10-04 16:59:36,411 [INFO   ] DbRawTable : update called
+2024-10-04 16:59:36,418 [INFO   ] DbParamTable : update called
+2024-10-04 16:59:36,420 [INFO   ] DbOutcomeTable : update called
+2024-10-04 16:59:36,423 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:00:31,059 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 17:00:31,185 [INFO   ] DBMasterTable : update called
+2024-10-04 17:00:31,201 [INFO   ] DbReplayTable : update called
+2024-10-04 17:00:31,210 [INFO   ] DbStratTable : update called
+2024-10-04 17:00:31,212 [INFO   ] DbConfigTable : update called
+2024-10-04 17:00:31,215 [INFO   ] DbRawTable : update called
+2024-10-04 17:00:31,220 [INFO   ] DbParamTable : update called
+2024-10-04 17:00:31,222 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:00:31,223 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:00:34,588 [INFO   ] DBMasterTable : update called
+2024-10-04 17:00:34,596 [INFO   ] DbReplayTable : update called
+2024-10-04 17:00:34,605 [INFO   ] DbStratTable : update called
+2024-10-04 17:00:34,606 [INFO   ] DbConfigTable : update called
+2024-10-04 17:00:34,608 [INFO   ] DbRawTable : update called
+2024-10-04 17:00:34,614 [INFO   ] DbParamTable : update called
+2024-10-04 17:00:34,615 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:00:34,618 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:01:20,023 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 17:01:20,180 [INFO   ] DBMasterTable : update called
+2024-10-04 17:01:20,199 [INFO   ] DbReplayTable : update called
+2024-10-04 17:01:20,211 [INFO   ] DbStratTable : update called
+2024-10-04 17:01:20,214 [INFO   ] DbConfigTable : update called
+2024-10-04 17:01:20,216 [INFO   ] DbRawTable : update called
+2024-10-04 17:01:20,223 [INFO   ] DbParamTable : update called
+2024-10-04 17:01:20,225 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:01:20,228 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:01:23,239 [INFO   ] DBMasterTable : update called
+2024-10-04 17:01:23,248 [INFO   ] DbReplayTable : update called
+2024-10-04 17:01:23,259 [INFO   ] DbStratTable : update called
+2024-10-04 17:01:23,260 [INFO   ] DbConfigTable : update called
+2024-10-04 17:01:23,262 [INFO   ] DbRawTable : update called
+2024-10-04 17:01:23,266 [INFO   ] DbParamTable : update called
+2024-10-04 17:01:23,268 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:01:23,269 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:02:06,691 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 17:02:06,807 [INFO   ] DBMasterTable : update called
+2024-10-04 17:02:06,827 [INFO   ] DbReplayTable : update called
+2024-10-04 17:02:06,837 [INFO   ] DbStratTable : update called
+2024-10-04 17:02:06,839 [INFO   ] DbConfigTable : update called
+2024-10-04 17:02:06,842 [INFO   ] DbRawTable : update called
+2024-10-04 17:02:06,849 [INFO   ] DbParamTable : update called
+2024-10-04 17:02:06,851 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:02:06,852 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:02:12,551 [INFO   ] DBMasterTable : update called
+2024-10-04 17:02:12,559 [INFO   ] DbReplayTable : update called
+2024-10-04 17:02:12,568 [INFO   ] DbStratTable : update called
+2024-10-04 17:02:12,570 [INFO   ] DbConfigTable : update called
+2024-10-04 17:02:12,572 [INFO   ] DbRawTable : update called
+2024-10-04 17:02:12,576 [INFO   ] DbParamTable : update called
+2024-10-04 17:02:12,577 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:02:12,579 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:07:22,926 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 17:07:23,056 [INFO   ] DBMasterTable : update called
+2024-10-04 17:07:23,073 [INFO   ] DbReplayTable : update called
+2024-10-04 17:07:23,087 [INFO   ] DbStratTable : update called
+2024-10-04 17:07:23,089 [INFO   ] DbConfigTable : update called
+2024-10-04 17:07:23,091 [INFO   ] DbRawTable : update called
+2024-10-04 17:07:23,097 [INFO   ] DbParamTable : update called
+2024-10-04 17:07:23,099 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:07:23,102 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:07:26,321 [INFO   ] DBMasterTable : update called
+2024-10-04 17:07:26,328 [INFO   ] DbReplayTable : update called
+2024-10-04 17:07:26,338 [INFO   ] DbStratTable : update called
+2024-10-04 17:07:26,340 [INFO   ] DbConfigTable : update called
+2024-10-04 17:07:26,341 [INFO   ] DbRawTable : update called
+2024-10-04 17:07:26,346 [INFO   ] DbParamTable : update called
+2024-10-04 17:07:26,347 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:07:26,349 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:10:26,490 [INFO   ] Found DB at ./databases/default.db, appending!
+2024-10-04 17:10:26,629 [INFO   ] DBMasterTable : update called
+2024-10-04 17:10:26,649 [INFO   ] DbReplayTable : update called
+2024-10-04 17:10:26,660 [INFO   ] DbStratTable : update called
+2024-10-04 17:10:26,662 [INFO   ] DbConfigTable : update called
+2024-10-04 17:10:26,664 [INFO   ] DbRawTable : update called
+2024-10-04 17:10:26,670 [INFO   ] DbParamTable : update called
+2024-10-04 17:10:26,671 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:10:26,672 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:10:29,330 [INFO   ] DBMasterTable : update called
+2024-10-04 17:10:29,338 [INFO   ] DbReplayTable : update called
+2024-10-04 17:10:29,347 [INFO   ] DbStratTable : update called
+2024-10-04 17:10:29,348 [INFO   ] DbConfigTable : update called
+2024-10-04 17:10:29,350 [INFO   ] DbRawTable : update called
+2024-10-04 17:10:29,355 [INFO   ] DbParamTable : update called
+2024-10-04 17:10:29,356 [INFO   ] DbOutcomeTable : update called
+2024-10-04 17:10:29,359 [WARNING] Config version 0.1 is less than AEPsych version 0.4.1. The config was automatically modified to be compatible. Check the config table in the db to see the changes.
+2024-10-04 17:25:02,669 [INFO   ] Found DB at data_collection_analysis_tutorial.db, appending!
+2024-10-04 17:25:06,981 [INFO   ] Received msg [setup]
+2024-10-04 17:25:24,787 [INFO   ] Received msg [setup]
+2024-10-04 17:25:26,844 [INFO   ] Received msg [ask]
+2024-10-04 17:25:29,434 [INFO   ] Received msg [tell]
+2024-10-04 17:25:31,348 [INFO   ] Received msg [ask]
+2024-10-04 17:25:35,197 [INFO   ] Received msg [tell]
+2024-10-04 17:25:35,263 [INFO   ] Received msg [ask]
+2024-10-04 17:25:37,689 [INFO   ] Received msg [tell]
+2024-10-04 17:25:37,743 [INFO   ] Received msg [ask]
+2024-10-04 17:25:40,358 [INFO   ] Received msg [tell]
+2024-10-04 17:25:40,405 [INFO   ] Received msg [ask]
+2024-10-04 17:25:44,011 [INFO   ] Received msg [tell]
+2024-10-04 17:25:44,065 [INFO   ] Received msg [ask]
+2024-10-04 17:25:46,742 [INFO   ] Received msg [tell]
+2024-10-04 17:25:46,793 [INFO   ] Received msg [ask]
+2024-10-04 17:25:49,251 [INFO   ] Received msg [tell]
+2024-10-04 17:25:49,301 [INFO   ] Received msg [ask]
+2024-10-04 17:25:51,696 [INFO   ] Received msg [tell]
+2024-10-04 17:25:51,749 [INFO   ] Received msg [ask]
+2024-10-04 17:25:54,296 [INFO   ] Received msg [tell]
+2024-10-04 17:25:54,353 [INFO   ] Received msg [ask]
+2024-10-04 17:25:57,119 [INFO   ] Received msg [tell]
+2024-10-04 17:25:57,167 [INFO   ] Received msg [ask]
+2024-10-04 17:25:57,170 [INFO   ] Starting fitting (no warm start)...
+2024-10-04 17:25:59,415 [INFO   ] Fitting done, took 2.2455999851226807
+2024-10-04 17:25:59,419 [INFO   ] Starting gen...
+2024-10-04 17:25:59,587 [INFO   ] Gen done, time=0.1669628620147705
+2024-10-04 17:26:02,750 [INFO   ] Received msg [tell]
+2024-10-04 17:26:02,801 [INFO   ] Recording strat because the experiment is complete.
+2024-10-04 17:26:09,128 [INFO   ] Received msg [ask]
+2024-10-04 17:26:09,132 [INFO   ] Starting fitting (warm start)...
+2024-10-04 17:26:09,895 [INFO   ] Fitting done, took 0.7635765075683594
+2024-10-04 17:26:09,897 [INFO   ] Starting gen...
+2024-10-04 17:26:11,419 [INFO   ] Gen done, time=1.5196592807769775
+2024-10-04 17:26:17,637 [INFO   ] Received msg [tell]
+2024-10-04 17:26:17,683 [INFO   ] Recording strat because the experiment is complete.
+2024-10-04 17:27:31,262 [INFO   ] Found DB at data_collection_analysis_tutorial.db, appending!
+2024-10-04 17:27:31,356 [INFO   ] Received msg [setup]
+2024-10-04 17:27:36,659 [INFO   ] Received msg [ask]
+2024-10-04 17:27:40,376 [INFO   ] Received msg [tell]
+2024-10-04 17:27:42,739 [INFO   ] Received msg [ask]
+2024-10-04 17:27:48,371 [INFO   ] Received msg [tell]
+2024-10-04 17:27:48,419 [INFO   ] Received msg [ask]
+2024-10-04 17:28:01,778 [INFO   ] Received msg [tell]
+2024-10-04 17:28:01,830 [INFO   ] Received msg [ask]
+2024-10-04 17:28:04,880 [INFO   ] Received msg [tell]
+2024-10-04 17:28:04,936 [INFO   ] Received msg [ask]
+2024-10-04 17:28:07,607 [INFO   ] Received msg [tell]
+2024-10-04 17:28:07,661 [INFO   ] Received msg [ask]
+2024-10-04 17:28:11,387 [INFO   ] Received msg [tell]
+2024-10-04 17:28:11,434 [INFO   ] Received msg [ask]
+2024-10-04 17:28:20,181 [INFO   ] Received msg [tell]
+2024-10-04 17:28:20,229 [INFO   ] Received msg [ask]
+2024-10-04 17:28:23,532 [INFO   ] Received msg [tell]
+2024-10-04 17:28:23,583 [INFO   ] Received msg [ask]
+2024-10-04 17:28:26,078 [INFO   ] Received msg [tell]
+2024-10-04 17:28:26,130 [INFO   ] Received msg [ask]
+2024-10-04 17:28:28,599 [INFO   ] Received msg [tell]
+2024-10-04 17:28:28,643 [INFO   ] Received msg [ask]
+2024-10-04 17:28:28,646 [INFO   ] Starting fitting (no warm start)...
+2024-10-04 17:28:30,150 [INFO   ] Fitting done, took 1.5040385723114014
+2024-10-04 17:28:30,152 [INFO   ] Starting gen...
+2024-10-04 17:28:30,452 [INFO   ] Gen done, time=0.2975888252258301
+2024-10-04 17:28:33,035 [INFO   ] Received msg [tell]
+2024-10-04 17:28:33,084 [INFO   ] Received msg [ask]
+2024-10-04 17:28:33,086 [INFO   ] Starting fitting (warm start)...
+2024-10-04 17:28:33,374 [INFO   ] Fitting done, took 0.2875344753265381
+2024-10-04 17:28:33,377 [INFO   ] Starting gen...
+2024-10-04 17:28:33,628 [INFO   ] Gen done, time=0.24834156036376953
+2024-10-04 17:28:36,269 [INFO   ] Received msg [tell]
+2024-10-04 17:28:36,320 [INFO   ] Received msg [ask]
+2024-10-04 17:28:36,322 [INFO   ] Starting fitting (warm start)...
+2024-10-04 17:28:36,651 [INFO   ] Fitting done, took 0.3291909694671631
+2024-10-04 17:28:36,655 [INFO   ] Starting gen...
+2024-10-04 17:28:36,813 [INFO   ] Gen done, time=0.15724658966064453
+2024-10-04 17:28:39,588 [INFO   ] Received msg [tell]
+2024-10-04 17:28:39,639 [INFO   ] Received msg [ask]
+2024-10-04 17:28:39,639 [INFO   ] Starting fitting (warm start)...
+2024-10-04 17:28:39,992 [INFO   ] Fitting done, took 0.3525047302246094
+2024-10-04 17:28:39,994 [INFO   ] Starting gen...
+2024-10-04 17:28:40,130 [INFO   ] Gen done, time=0.13533401489257812
+2024-10-04 17:28:42,705 [INFO   ] Received msg [tell]
+2024-10-04 17:28:42,754 [INFO   ] Received msg [ask]
+2024-10-04 17:28:42,757 [INFO   ] Starting fitting (warm start)...
+2024-10-04 17:28:43,331 [INFO   ] Fitting done, took 0.5744369029998779
+2024-10-04 17:28:43,334 [INFO   ] Starting gen...
+2024-10-04 17:28:43,590 [INFO   ] Gen done, time=0.2541160583496094
+2024-10-04 17:28:46,197 [INFO   ] Received msg [tell]
+2024-10-04 17:28:46,250 [INFO   ] Recording strat because the experiment is complete.
+2024-10-04 17:28:46,298 [INFO   ] Received msg [ask]
+2024-10-04 17:28:46,302 [INFO   ] Starting fitting (no warm start)...
+2024-10-04 17:28:46,905 [INFO   ] Fitting done, took 0.6034293174743652
+2024-10-04 17:28:46,908 [INFO   ] Starting gen...
+2024-10-04 17:28:47,016 [INFO   ] Gen done, time=0.10620927810668945
+2024-10-04 17:28:49,550 [INFO   ] Received msg [tell]
+2024-10-04 17:28:49,598 [INFO   ] Recording strat because the experiment is complete.
+2024-10-06 17:58:19,172 [INFO   ] Found DB at data_collection_analysis_tutorial.db, appending!
+2024-10-06 17:58:19,219 [INFO   ] Received msg [setup]
+2024-10-06 17:58:19,291 [INFO   ] Received msg [ask]
+2024-10-06 17:58:19,311 [INFO   ] Received msg [tell]
+2024-10-06 17:58:19,350 [INFO   ] Received msg [ask]
+2024-10-06 18:27:01,356 [INFO   ] Found DB at data_collection_analysis_tutorial.db, appending!
+2024-10-06 18:27:55,277 [INFO   ] Received msg [setup]
+2024-10-06 18:27:57,578 [INFO   ] Received msg [ask]
+2024-10-06 18:27:58,965 [INFO   ] Received msg [tell]
+2024-10-06 18:28:00,744 [INFO   ] Received msg [ask]
+2024-10-06 18:28:03,336 [INFO   ] Received msg [tell]
+2024-10-06 18:28:03,358 [INFO   ] Received msg [ask]
+2024-10-06 18:28:05,494 [INFO   ] Received msg [tell]
+2024-10-06 18:28:05,521 [INFO   ] Received msg [ask]
+2024-10-06 18:28:07,665 [INFO   ] Received msg [tell]
+2024-10-06 18:28:07,694 [INFO   ] Received msg [ask]
+2024-10-06 18:28:09,789 [INFO   ] Received msg [tell]
+2024-10-06 18:28:09,819 [INFO   ] Received msg [ask]
+2024-10-06 18:28:09,819 [INFO   ] Starting fitting (no warm start)...
+2024-10-06 18:28:10,598 [INFO   ] Fitting done, took 0.7795429229736328
+2024-10-06 18:28:10,598 [INFO   ] Starting gen...
+2024-10-06 18:28:10,717 [INFO   ] Gen done, time=0.11888766288757324
+2024-10-06 18:28:13,432 [INFO   ] Received msg [tell]
+2024-10-06 18:28:13,471 [INFO   ] Received msg [ask]
+2024-10-06 18:28:13,472 [INFO   ] Starting fitting (warm start)...
+2024-10-06 18:28:13,590 [INFO   ] Fitting done, took 0.11864185333251953
+2024-10-06 18:28:13,590 [INFO   ] Starting gen...
+2024-10-06 18:28:13,663 [INFO   ] Gen done, time=0.07257795333862305
+2024-10-06 18:28:16,094 [INFO   ] Received msg [tell]
+2024-10-06 18:28:16,123 [INFO   ] Received msg [ask]
+2024-10-06 18:28:16,131 [INFO   ] Starting fitting (warm start)...
+2024-10-06 18:28:16,305 [INFO   ] Fitting done, took 0.17388010025024414
+2024-10-06 18:28:16,305 [INFO   ] Starting gen...
+2024-10-06 18:28:16,378 [INFO   ] Gen done, time=0.07047057151794434
+2024-10-06 18:28:18,604 [INFO   ] Received msg [tell]
+2024-10-06 18:28:18,633 [INFO   ] Received msg [ask]
+2024-10-06 18:28:18,633 [INFO   ] Starting fitting (warm start)...
+2024-10-06 18:28:18,816 [INFO   ] Fitting done, took 0.1829667091369629
+2024-10-06 18:28:18,817 [INFO   ] Starting gen...
+2024-10-06 18:28:18,899 [INFO   ] Gen done, time=0.08176422119140625
+2024-10-06 18:28:21,003 [INFO   ] Received msg [tell]
+2024-10-06 18:28:21,025 [INFO   ] Received msg [ask]
+2024-10-06 18:28:21,027 [INFO   ] Starting fitting (warm start)...
+2024-10-06 18:28:21,221 [INFO   ] Fitting done, took 0.19396686553955078
+2024-10-06 18:28:21,221 [INFO   ] Starting gen...
+2024-10-06 18:28:21,331 [INFO   ] Gen done, time=0.1107487678527832
+2024-10-06 18:28:23,698 [INFO   ] Received msg [tell]
+2024-10-06 18:28:23,723 [INFO   ] Recording strat because the experiment is complete.
+2024-10-06 18:28:23,736 [INFO   ] Received msg [ask]
+2024-10-06 18:28:23,736 [INFO   ] Starting fitting (no warm start)...
+2024-10-06 18:28:24,100 [INFO   ] Fitting done, took 0.3634188175201416
+2024-10-06 18:28:24,100 [INFO   ] Starting gen...
+2024-10-06 18:28:24,202 [INFO   ] Gen done, time=0.09170770645141602
+2024-10-06 18:28:26,297 [INFO   ] Received msg [tell]
+2024-10-06 18:28:26,321 [INFO   ] Recording strat because the experiment is complete.
+2024-10-06 18:28:30,437 [INFO   ] Received msg [ask]
+2024-10-06 18:28:30,438 [INFO   ] Starting fitting (warm start)...
+2024-10-06 18:28:30,689 [INFO   ] Fitting done, took 0.2504453659057617
+2024-10-06 18:28:30,689 [INFO   ] Starting gen...
+2024-10-06 18:28:30,754 [INFO   ] Gen done, time=0.06360673904418945
+2024-10-06 18:28:32,545 [INFO   ] Received msg [tell]
+2024-10-06 18:28:32,565 [INFO   ] Recording strat because the experiment is complete.
+2024-10-06 18:28:34,085 [INFO   ] Received msg [exit]
+2024-10-06 18:28:34,086 [INFO   ] Got termination message!
+2024-10-06 18:28:34,087 [INFO   ] Dumping strats to DB due to Normal termination.
+2024-10-06 18:28:35,790 [INFO   ] Found DB at data_collection_analysis_tutorial.db, appending!
+2024-10-06 18:28:41,325 [INFO   ] skip_computations=True, make sure to refit the final strat before doing anything!
+2024-10-06 18:28:41,329 [INFO   ] Received msg [setup]
+2024-10-06 18:28:41,343 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,344 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,346 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,348 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,350 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,352 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,353 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,356 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,357 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,359 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,360 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,362 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,365 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,365 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,366 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,369 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,371 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,371 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,377 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,380 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,382 [INFO   ] Recording strat because the experiment is complete.
+2024-10-06 18:28:41,407 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,410 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,411 [INFO   ] Recording strat because the experiment is complete.
+2024-10-06 18:28:41,428 [INFO   ] Received msg [ask]
+2024-10-06 18:28:41,431 [INFO   ] Received msg [tell]
+2024-10-06 18:28:41,432 [INFO   ] Recording strat because the experiment is complete.
+2024-10-06 18:29:05,765 [INFO   ] Found DB at data_collection_analysis_tutorial.db, appending!
+2024-10-06 18:29:08,005 [INFO   ] Received msg [setup]
+2024-10-06 18:29:11,505 [INFO   ] Received msg [setup]
+2024-10-06 18:29:13,779 [INFO   ] Received msg [ask]
+2024-10-06 18:29:15,324 [INFO   ] Received msg [tell]
+2024-10-06 18:29:16,718 [INFO   ] Received msg [ask]
+2024-10-06 18:29:19,350 [INFO   ] Received msg [tell]
+2024-10-06 18:29:19,373 [INFO   ] Received msg [ask]
+2024-10-06 18:29:21,461 [INFO   ] Received msg [tell]
+2024-10-06 18:29:21,489 [INFO   ] Received msg [ask]
+2024-10-06 18:29:23,756 [INFO   ] Received msg [tell]
+2024-10-06 18:29:23,779 [INFO   ] Received msg [ask]
+2024-10-06 18:29:25,799 [INFO   ] Received msg [tell]
+2024-10-06 18:29:25,827 [INFO   ] Received msg [ask]
+2024-10-06 18:29:25,828 [INFO   ] Starting fitting (no warm start)...

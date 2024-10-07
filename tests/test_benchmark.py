@@ -81,7 +81,7 @@ class MultipleLSETestCase(unittest.TestCase):
         of the probability of the stimulus being below a threshold
         for one single threshold"""
         f, var = self.model.predict(x)
-        return norm.cdf((f_thresh - f.detach().numpy()) / var.sqrt().detach().numpy())
+        return norm.cdf((f_thresh - f.detach().numpy()) / var.sqrt().detach().numpy()) # Maybe this should be Tensor?
 
     def unvectorized_true_below_threshold(self, threshold):
         """the original true_below_threshold method in the LSEProblem class"""

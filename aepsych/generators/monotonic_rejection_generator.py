@@ -163,7 +163,7 @@ class MonotonicRejectionGenerator(AEPsychGenerator[MonotonicRejectionGP]):
             batch_acquisition = acqf(candidates)
         best = torch.argmax(batch_acquisition.view(-1), dim=0)
         Xopt = candidates[best][:, :-1].detach()
-        return Xopt
+        return Xopt # But this is Tensor?
 
     @classmethod
     def from_config(cls, config: Config):

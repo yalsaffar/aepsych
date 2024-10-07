@@ -66,7 +66,7 @@ class ManualGenerator(AEPsychGenerator):
             )
         points = self.points[self._idx : self._idx + num_points]
         self._idx += num_points
-        return points
+        return points # But this is Tensor?
 
     @classmethod
     def from_config(cls, config: Config, name: Optional[str] = None):

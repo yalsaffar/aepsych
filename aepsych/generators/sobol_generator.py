@@ -68,7 +68,7 @@ class SobolGenerator(AEPsychGenerator):
                 -1,
                 -self.stimuli_per_trial,
             )
-        )
+        ) # But this is Tensor?
 
     @classmethod
     def from_config(cls, config: Config):

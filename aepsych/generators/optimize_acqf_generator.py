@@ -117,7 +117,7 @@ class OptimizeAcqfGenerator(AEPsychGenerator):
         )
 
         logger.info(f"Gen done, time={time.time()-starttime}")
-        return new_candidate
+        return new_candidate # But this is Tensor?
 
     @classmethod
     def from_config(cls, config: Config):

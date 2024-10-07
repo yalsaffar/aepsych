@@ -170,7 +170,7 @@ class Strategy(object):
 
         self.name = name
 
-    def normalize_inputs(self, x, y):
+    def normalize_inputs(self, x, y): #Args need to be Tensors
         """converts inputs into normalized format for this strategy
 
         Args:
@@ -201,7 +201,7 @@ class Strategy(object):
 
         n = y.shape[0]
 
-        return torch.Tensor(x), torch.Tensor(y), n
+        return torch.Tensor(x), torch.Tensor(y), n # But this is Tensor?
 
     # TODO: allow user to pass in generator options
     @ensure_model_is_fresh
@@ -216,7 +216,7 @@ class Strategy(object):
             np.ndarray: Next set of point(s) to evaluate, [num_points x dim].
         """
         self._count = self._count + num_points
-        return self.generator.gen(num_points, self.model)
+        return self.generator.gen(num_points, self.model) # But this is Tensor?
 
     @ensure_model_is_fresh
     def get_max(self, constraints=None, probability_space=False, max_time=None):

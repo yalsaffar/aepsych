@@ -4,7 +4,7 @@
 
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
-
+# Needs to be fixed in many lines ||||||
 import io
 import math
 from typing import Callable
@@ -146,7 +146,7 @@ def novel_discrimination_testfun(x: np.ndarray) -> np.ndarray:
     freq = x[..., 0]
     amp = x[..., 1]
     context = 2 * (0.05 + 0.4 * (-1 + 0.2 * freq) ** 2 * freq**2)
-    return 2 * (amp + 1) / context
+    return 2 * (amp + 1) / context # Needs to be fixed
 
 
 def novel_detection_testfun(x):
@@ -164,7 +164,7 @@ def novel_detection_testfun(x):
     freq = x[..., 0]
     amp = x[..., 1]
     context = 2 * (0.05 + 0.4 * (-1 + 0.2 * freq) ** 2 * freq**2)
-    return 4 * (amp + 1) / context - 4
+    return 4 * (amp + 1) / context - 4 # Needs to be fixed
 
 
 def discrim_highdim(x):
@@ -188,7 +188,7 @@ def discrim_highdim(x):
     p = norm.cdf(z)
     p = (1 - 0.5) * p + 0.5  # Floor at p=0.5
     p = np.clip(p, 0.5, 1 - 1e-5)  # clip so that norm.ppf doesn't go to inf
-    return norm.ppf(p)
+    return norm.ppf(p) # Needs to be fixed
 
 
 def modified_hartmann6(X):
@@ -219,7 +219,7 @@ def modified_hartmann6(X):
         for j in range(6):
             t += a_t[i, j] * ((X[j] - p_t[i, j]) ** 2)
         y += C_i * np.exp(-t)
-    return -10 * (float(y) - 0.1)
+    return -10 * (float(y) - 0.1) # Needs to be fixed
 
 
 def f_1d(x, mu=0):
