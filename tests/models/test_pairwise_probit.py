@@ -505,7 +505,7 @@ class PairwiseProbitModelServerTest(unittest.TestCase):
 
         for _i in range(n_init + n_opt):
             next_config = ask(server)
-            next_y = bernoulli.rvs(f_pairwise(f_1d, next_config["x"], noise_scale=0.1))
+            next_y = [bernoulli.rvs(f_pairwise(f_1d, next_config["x"], noise_scale=0.1))]
             tell(server, config=next_config, outcome=next_y)
 
         x = torch.linspace(-4, 4, 100)
@@ -556,7 +556,7 @@ class PairwiseProbitModelServerTest(unittest.TestCase):
         for _i in range(n_init + n_opt):
             next_config = ask(server)
             next_pair = np.c_[next_config["x"], next_config["y"]].T
-            next_y = bernoulli.rvs(f_pairwise(f_2d, next_pair, noise_scale=0.1))
+            next_y = [bernoulli.rvs(f_pairwise(f_2d, next_pair, noise_scale=0.1))]
             tell(server, config=next_config, outcome=next_y)
 
         xy = np.mgrid[-1:1:30j, -1:1:30j].reshape(2, -1).T
@@ -607,7 +607,7 @@ class PairwiseProbitModelServerTest(unittest.TestCase):
 
         for _i in range(n_init + n_opt):
             next_config = ask(server)
-            next_y = bernoulli.rvs(f_pairwise(f_1d, next_config["x"]))
+            next_y = [bernoulli.rvs(f_pairwise(f_1d, next_config["x"]))]
             tell(server, config=next_config, outcome=next_y)
 
         import dill
@@ -670,7 +670,7 @@ class PairwiseProbitModelServerTest(unittest.TestCase):
         for _i in range(n_init + n_opt):
             next_config = ask(server)
             next_pair = np.c_[next_config["x"], next_config["y"]].T
-            next_y = bernoulli.rvs(f_pairwise(f_2d, next_pair))
+            next_y = [bernoulli.rvs(f_pairwise(f_2d, next_pair))]
             tell(server, config=next_config, outcome=next_y)
 
         import dill
