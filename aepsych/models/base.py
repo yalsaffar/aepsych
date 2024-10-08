@@ -300,7 +300,7 @@ class AEPsychMixin(GPyTorchModel):
         elif method == "step":
             samps = [s.reshape((gridsize,) * self.dim) for s in fsamps]
             jnds = torch.stack(
-                [get_jnd_multid(s, coords, mono_dim=intensity_dim) for s in samps]
+                [get_jnd_multid(s, coords, mono_dim=intensity_dim).cpu().numpy() for s in samps]
             )
         else:
             raise RuntimeError(f"Unknown method {method}!")
