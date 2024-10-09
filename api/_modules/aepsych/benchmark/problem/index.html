@@ -244,7 +244,6 @@
         <span class="k">return</span> <span class="n">md</span>
 
 <div class="viewcode-block" id="LSEProblem.f_threshold"><a class="viewcode-back" href="../../../benchmark.html#aepsych.benchmark.problem.LSEProblem.f_threshold">[docs]</a>    <span class="k">def</span> <span class="nf">f_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-
         <span class="k">try</span><span class="p">:</span>
             <span class="n">inverse_torch</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">likelihood</span><span class="o">.</span><span class="n">objective</span><span class="o">.</span><span class="n">inverse</span>
 
@@ -253,8 +252,11 @@
 
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
             <span class="k">def</span> <span class="nf">inverse_link</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># norm.ppf returns a scalar/array, convert to tensor</span>
+                <span class="n">normal_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Standard normal distribution</span>
+                <span class="k">return</span> <span class="n">normal_dist</span><span class="o">.</span><span class="n">icdf</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># Same as norm.ppf but in Torch</span>
+        
         <span class="k">return</span> <span class="n">inverse_link</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># Return as float32 tensor</span></div>
+
 
 
 
