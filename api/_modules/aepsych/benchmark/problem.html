@@ -249,11 +249,14 @@
             <span class="n">inverse_torch</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">likelihood</span><span class="o">.</span><span class="n">objective</span><span class="o">.</span><span class="n">inverse</span>
 
             <span class="k">def</span> <span class="nf">inverse_link</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-                <span class="k">return</span> <span class="n">inverse_torch</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">inverse_torch</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-            <span class="n">inverse_link</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span>
-        <span class="k">return</span> <span class="n">inverse_link</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
+            <span class="k">def</span> <span class="nf">inverse_link</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># norm.ppf returns a scalar/array, convert to tensor</span>
+        <span class="k">return</span> <span class="n">inverse_link</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># Return as float32 tensor</span></div>
+
+
 
     <span class="nd">@cached_property</span>
     <span class="k">def</span> <span class="nf">true_below_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
@@ -295,18 +298,18 @@
         <span class="n">p_l</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">p_below_threshold</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">eval_grid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_threshold</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
         <span class="p">)</span>
-        <span class="n">true_p_l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">true_below_threshold</span>
+        <span class="n">true_p_l</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">true_below_threshold</span><span class="p">)</span>
         <span class="k">assert</span> <span class="p">(</span>
             <span class="n">p_l</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span>
             <span class="ow">and</span> <span class="n">p_l</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">true_p_l</span><span class="o">.</span><span class="n">shape</span>
             <span class="ow">and</span> <span class="n">p_l</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span><span class="p">)</span>
         <span class="p">)</span>
 
-        <span class="c1"># Predict p(below threshold) at test points</span>
-        <span class="n">brier_p_below_thresh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">true_p_l</span> <span class="o">-</span> <span class="n">p_l</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Now, perform the Brier score calculation and classification error in PyTorch</span>
+        <span class="n">brier_p_below_thresh</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">true_p_l</span> <span class="o">-</span> <span class="n">p_l</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="c1"># Classification error</span>
-        <span class="n">misclass_on_thresh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
-            <span class="n">p_l</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">true_p_l</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_l</span><span class="p">)</span> <span class="o">*</span> <span class="n">true_p_l</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+        <span class="n">misclass_on_thresh</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
+        <span class="n">p_l</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">true_p_l</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_l</span><span class="p">)</span> <span class="o">*</span> <span class="n">true_p_l</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span>
         <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">i_threshold</span><span class="p">,</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span><span class="p">):</span>
