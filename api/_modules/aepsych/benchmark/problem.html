@@ -69,16 +69,19 @@
 <span class="sd">        Benchmark's output dataframe, with its associated value stored in each row."""</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
 
-<div class="viewcode-block" id="Problem.p"><a class="viewcode-back" href="../../../benchmark.html#aepsych.benchmark.problem.Problem.p">[docs]</a>    <span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Evaluate response probability from test function.</span>
+<div class="viewcode-block" id="Problem.p"><a class="viewcode-back" href="../../../benchmark.html#aepsych.benchmark.problem.Problem.p">[docs]</a>    <span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Evaluate response probability from test function.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            x (np.ndarray): Points at which to evaluate.</span>
+<span class="sd">            x (torch.Tensor): Points at which to evaluate.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            np.ndarray: Response probability at queries points.</span>
+<span class="sd">            torch.Tensor: Response probability at queried points.</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
+        <span class="n">normal_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Standard normal distribution</span>
+        <span class="k">return</span> <span class="n">normal_dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># Use PyTorch's CDF equivalent</span></div>
+
 
 <div class="viewcode-block" id="Problem.sample_y"><a class="viewcode-back" href="../../../benchmark.html#aepsych.benchmark.problem.Problem.sample_y">[docs]</a>    <span class="k">def</span> <span class="nf">sample_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Sample a response from test function.</span>
@@ -252,8 +255,8 @@
 
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
             <span class="k">def</span> <span class="nf">inverse_link</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-                <span class="n">normal_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Standard normal distribution</span>
-                <span class="k">return</span> <span class="n">normal_dist</span><span class="o">.</span><span class="n">icdf</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># Same as norm.ppf but in Torch</span>
+                <span class="n">normal_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  
+                <span class="k">return</span> <span class="n">normal_dist</span><span class="o">.</span><span class="n">icdf</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># Same as norm.ppf but using Torch</span>
         
         <span class="k">return</span> <span class="n">inverse_link</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># Return as float32 tensor</span></div>
 
@@ -268,7 +271,7 @@
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eval_grid</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
 <div class="viewcode-block" id="LSEProblem.evaluate"><a class="viewcode-back" href="../../../benchmark.html#aepsych.benchmark.problem.LSEProblem.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strat</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Strategy</span><span class="p">,</span> <span class="n">SequentialStrategy</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Evaluate the model with respect to this problem.</span>
