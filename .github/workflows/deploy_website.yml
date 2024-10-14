@@ -37,14 +37,21 @@ jobs:
       # Step 6: Build the AEPsych documentation
       - name: Build AEPsych documentation
         run: |
+          chmod +x ./scripts/build_docs.sh
           ./scripts/build_docs.sh -b
+
+      # Debug Step: Check the contents of the website directory
+      - name: Check website directory after build
+        run: |
+          echo "Checking the contents of the ./website/build directory"
+          ls -R ./website/build
 
       # Step 7: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/build/aepsych
-          force_orphan: true  # Ensures no previous files cause issues
+          publish_dir: ./website/build  # We'll adjust this based on the output from the previous step
+          force_orphan: true
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
