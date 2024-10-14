@@ -47,15 +47,6 @@ jobs:
         run: |
           ls -R ./website/build  # Verifying that the site was built correctly
 
-      # Clean up gh-pages branch before deployment
-      - name: Clean up gh-pages branch
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git fetch origin gh-pages
-          git checkout --orphan gh-pages
-          git reset --hard
-          git clean -fdx
 
       # Verify if build files are available before copying
       - name: Verify site files exist
