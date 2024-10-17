@@ -94,7 +94,7 @@ class Benchmark:
             for c in itertools.product(*(gen_combinations(v) for v in values))
         ]
 
-    def materialize_config(self, config_dict):
+    def materialize_config(self, config_dict: Mapping[str, str]) -> Dict[str, Any]:
         materialized_config = {}
         for key, value in config_dict.items():
             materialized_config[key] = {

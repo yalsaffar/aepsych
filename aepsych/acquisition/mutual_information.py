@@ -123,7 +123,7 @@ def construct_inputs_mi(
     objective=None,
     sampler=None,
     **kwargs,
-):
+) -> dict:
     return {
         "model": model,
         "objective": objective,

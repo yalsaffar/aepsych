@@ -23,7 +23,7 @@ class Problem:
     n_eval_points = 1000
 
     @cached_property
-    def eval_grid(self):
+    def eval_grid(self) -> torch.Tensor:
         return make_scaled_sobol(lb=self.lb, ub=self.ub, size=self.n_eval_points)
 
     @property
@@ -316,10 +316,10 @@ The LSEProblemWithEdgeLogging class is copied from bernoulli_lse github reposito
 class LSEProblemWithEdgeLogging(LSEProblem):
     eps = 0.05
 
-    def __init__(self, thresholds):
+    def __init__(self, thresholds: torch.Tensor):
         super().__init__(thresholds)
 
-    def evaluate(self, strat):
+    def evaluate(self, strat: SequentialStrategy) -> Dict[str, float]:
         metrics = super().evaluate(strat)
 
         # add number of edge samples to the log
