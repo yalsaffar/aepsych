@@ -39,13 +39,16 @@ by a callable (which can be a botorch objective)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>function_samples</strong> – Samples from the function (<span class="math notranslate nohighlight">\(\mathbf f\)</span>)</p></li>
+<li><p><strong>function_samples</strong> (<em>Tensor</em>) – Samples from the function (<span class="math notranslate nohighlight">\(\mathbf f\)</span>)</p></li>
 <li><p><strong>data</strong> – (Pyro integration only.) Additional variables that the likelihood needs to condition
 on. The keys of the dictionary will correspond to Pyro sample sites
 in the likelihood’s model/guide.</p></li>
 <li><p><strong>args</strong> – Additional args</p></li>
-<li><p><strong>kwargs</strong> – Additional kwargs</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – Additional kwargs</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Bernoulli</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -79,7 +82,7 @@ and <span class="math notranslate nohighlight">\(d_k\)</span> is a learned cutpo
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="aepsych.likelihoods.OrdinalLikelihood.cutpoints">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cutpoints</span></span><a class="headerlink" href="#aepsych.likelihoods.OrdinalLikelihood.cutpoints" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cutpoints</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tensor</span></em><a class="headerlink" href="#aepsych.likelihoods.OrdinalLikelihood.cutpoints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aepsych.likelihoods.OrdinalLikelihood.forward">
@@ -89,7 +92,7 @@ and <span class="math notranslate nohighlight">\(d_k\)</span> is a learned cutpo
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>function_samples</strong> – Samples from the function (<span class="math notranslate nohighlight">\(\mathbf f\)</span>)</p></li>
+<li><p><strong>function_samples</strong> (<em>Tensor</em>) – Samples from the function (<span class="math notranslate nohighlight">\(\mathbf f\)</span>)</p></li>
 <li><p><strong>data</strong> – (Pyro integration only.) Additional variables that the likelihood needs to condition
 on. The keys of the dictionary will correspond to Pyro sample sites
 in the likelihood’s model/guide.</p></li>
@@ -97,12 +100,20 @@ in the likelihood’s model/guide.</p></li>
 <li><p><strong>kwargs</strong> – Additional kwargs</p></li>
 </ul>
 </dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Categorical</em></p>
+</dd>
 </dl>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aepsych.likelihoods.OrdinalLikelihood.from_config">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aepsych/likelihoods/ordinal.html#OrdinalLikelihood.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aepsych.likelihoods.OrdinalLikelihood.from_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="config.html#aepsych.config.Config" title="aepsych.config.Config"><em>Config</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="aepsych.likelihoods.LinearBernoulliLikelihood">
