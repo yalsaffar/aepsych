@@ -117,9 +117,6 @@
 <li><p><strong>model</strong> (<a class="reference internal" href="models.html#aepsych.models.base.ModelProtocol" title="aepsych.models.base.ModelProtocol"><em>ModelProtocol</em></a>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Tensor</em></p>
-</dd>
 </dl>
 </dd></dl>
 </dd></dl>
@@ -165,7 +162,7 @@
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -204,7 +201,7 @@
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="aepsych.generators.manual_generator.ManualGenerator.finished">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">finished</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#aepsych.generators.manual_generator.ManualGenerator.finished" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">finished</span></span><a class="headerlink" href="#aepsych.generators.manual_generator.ManualGenerator.finished" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 </dd></dl>
 <dl class="py class">
@@ -321,7 +318,7 @@ fixed for acquisition fn optimization.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -379,7 +376,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -443,7 +440,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -498,7 +495,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -557,7 +554,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -621,7 +618,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -679,7 +676,7 @@ fixed for acquisition fn optimization.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -734,7 +731,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -786,7 +783,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -842,7 +839,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -893,9 +890,6 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <li><p><strong>model</strong> (<a class="reference internal" href="models.html#aepsych.models.base.ModelProtocol" title="aepsych.models.base.ModelProtocol"><em>ModelProtocol</em></a>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Tensor</em></p>
-</dd>
 </dl>
 </dd></dl>
 </dd></dl>
@@ -938,7 +932,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -977,7 +971,7 @@ before evaluating the acquisition. Defaults to identity transform.</p></li>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="aepsych.generators.ManualGenerator.finished">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">finished</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#aepsych.generators.ManualGenerator.finished" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">finished</span></span><a class="headerlink" href="#aepsych.generators.ManualGenerator.finished" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 </dd></dl>
 <dl class="py class">
@@ -1164,7 +1158,7 @@ with this generator. It should work with other similar acquisition functions.</p
 <dd class="field-odd"><p>Next set of point(s) to evaluate, [num_points x dim].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.Tensor</p>
+<dd class="field-even"><p>np.ndarray</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

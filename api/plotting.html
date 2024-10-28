@@ -62,7 +62,30 @@ Default: True.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="aepsych.plotting.plot_strat_3d">
 <span class="sig-prename descclassname"><span class="pre">aepsych.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_strat_3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parnames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Yes</span> <span class="pre">Trial'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_vals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contour_levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probability_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent_multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aepsych/plotting.html#plot_strat_3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aepsych.plotting.plot_strat_3d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Creates a plot of a 2d slice of a 3D strategy, showing the estimated model or probability response and contours
+:param strat: Strategy object to be plotted. Must have a dimensionality of 3.
+:type strat: Strategy
+:param parnames: list of the parameter names
+:type parnames: str list
+:param outcome_label: The label of the outcome variable
+:type outcome_label: str
+:param slice_dim: dimension to slice on
+:type slice_dim: int
+:param dim_vals: values to take slices; OR number of values to take even slices from
+:type dim_vals: list of floats or int
+:param contour_levels: List contour values to plot. Default: None. If true, all integer levels.
+:type contour_levels: iterable of floats or bool, optional
+:param probability_space: Whether to plot probability. Default: False
+:type probability_space: bool
+:param gridsize: The number of points to sample each dimension at. Default: 30.
+:type gridsize: int
+:param extent_multiplier: multipliers for each of the dimensions when plotting. Default:None
+:type extent_multiplier: list, optional
+:param save_path: File name to save the plot to. Default: None.
+:type save_path: str, optional
+:param show: Whether the plot should be shown in an interactive window. Default: True.
+:type show: bool</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>strat</strong> (<a class="reference internal" href="strategy.html#aepsych.strategy.Strategy" title="aepsych.strategy.Strategy"><em>Strategy</em></a>) – </p></li>
@@ -77,9 +100,6 @@ Default: True.</p></li>
 <li><p><strong>save_path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
 <li><p><strong>show</strong> (<em>bool</em>) – </p></li>
 </ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -109,21 +129,6 @@ Default: True.</p></li>
 :type lse: bool
 :param extent_multiplier: multipliers for each of the dimensions when plotting. Default:None
 :type extent_multiplier: list, optional</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>strat</strong> (<a class="reference internal" href="strategy.html#aepsych.strategy.Strategy" title="aepsych.strategy.Strategy"><em>Strategy</em></a>) – </p></li>
-<li><p><strong>parnames</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>slice_dim</strong> (<em>int</em>) – </p></li>
-<li><p><strong>vmin</strong> (<em>float</em>) – </p></li>
-<li><p><strong>vmax</strong> (<em>float</em>) – </p></li>
-<li><p><strong>gridsize</strong> (<em>int</em>) – </p></li>
-<li><p><strong>contour_levels</strong> (<em>Optional</em><em>[</em><em>Sized</em><em>]</em>) – </p></li>
-<li><p><strong>lse</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>extent_multiplier</strong> (<em>Optional</em><em>[</em><em>List</em><em>]</em>) – </p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 </section>
 </section>
