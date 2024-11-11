@@ -33,8 +33,7 @@ class GPRegressionModel(AEPsychModelDeviceMixin, ExactGP):
 
     def __init__(
         self,
-        lb: Union[np.ndarray, torch.Tensor],
-        ub: Union[np.ndarray, torch.Tensor],
+        inducing_points: Optional[torch.Tensor] = None,
         dim: Optional[int] = None,
         mean_module: Optional[gpytorch.means.Mean] = None,
         covar_module: Optional[gpytorch.kernels.Kernel] = None,
@@ -44,8 +43,7 @@ class GPRegressionModel(AEPsychModelDeviceMixin, ExactGP):
         """Initialize the GP regression model
 
         Args:
-            lb (Union[numpy.ndarray, torch.Tensor]): Lower bounds of the parameters.
-            ub (Union[numpy.ndarray, torch.Tensor]): Upper bounds of the parameters.
+            inducing_points (torch.Tensor, optional): Inducing points for sparse GP. Defaults to None.
             dim (int, optional): The number of dimensions in the parameter space. If None, it is inferred from the size
                 of lb and ub.
             mean_module (gpytorch.means.Mean, optional): GP mean class. Defaults to a constant with a normal prior.
@@ -61,7 +59,7 @@ class GPRegressionModel(AEPsychModelDeviceMixin, ExactGP):
 
         super().__init__(None, None, likelihood)
 
-        lb, ub, self.dim = _process_bounds(lb, ub, dim)
+        # lb, ub, self.dim = _process_bounds(lb, ub, dim)
         self.max_fit_time = max_fit_time
 
         if mean_module is None or covar_module is None:
@@ -70,8 +68,6 @@ class GPRegressionModel(AEPsychModelDeviceMixin, ExactGP):
             )
 
         # Tensors need to be directly registered, Modules themselves can be assigned as attr
-        self.register_buffer("lb", lb)
-        self.register_buffer("ub", ub)
         self.likelihood = likelihood
         self.mean_module = mean_module or default_mean
         self.covar_module = covar_module or default_covar
@@ -83,8 +79,7 @@ class GPRegressionModel(AEPsychModelDeviceMixin, ExactGP):
     def construct_inputs(cls, config: Config) -> Dict:
         classname = cls.__name__
 
-        lb = config.gettensor(classname, "lb")
-        ub = config.gettensor(classname, "ub")
+        inducing_points = config.gettensor(classname, "inducing_points", fallback=None)
         dim = config.getint(classname, "dim", fallback=None)
 
         mean_covar_factory = config.getobj(
@@ -106,8 +101,7 @@ class GPRegressionModel(AEPsychModelDeviceMixin, ExactGP):
         max_fit_time = config.getfloat(classname, "max_fit_time", fallback=None)
 
         return {
-            "lb": lb,
-            "ub": ub,
+            "inducing_points": inducing_points,
             "dim": dim,
             "mean_module": mean,
             "covar_module": covar,

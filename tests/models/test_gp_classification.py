@@ -198,9 +198,6 @@ class GPClassificationSmoketest(unittest.TestCase):
         npt.assert_allclose(pred, y)
 
     def test_1d_classification_different_scales(self):
-        """
-        Just see if we memorize the training set
-        """
         np.random.seed(1)
         torch.manual_seed(1)
         X, y = make_classification(
@@ -228,31 +225,26 @@ class GPClassificationSmoketest(unittest.TestCase):
         )
         model.fit(X[:50], y[:50])
 
-        # pspace
         pm, _ = model.predict_probability(X[:50])
         pred = (pm > 0.5).numpy()
         npt.assert_allclose(pred, y[:50])
 
-        # fspace
         pm, _ = model.predict(X[:50], probability_space=False)
         pred = (pm > 0).numpy()
         npt.assert_allclose(pred, y[:50])
 
-        # smoke test update
         model.update(X, y)
 
-        # pspace
         pm, _ = model.predict_probability(X)
         pred = (pm > 0.5).numpy()
         npt.assert_allclose(pred, y)
 
-        # fspace
         pm, _ = model.predict(X, probability_space=False)
         pred = (pm > 0).numpy()
         npt.assert_allclose(pred, y)
 
     def test_reset_hyperparams(self):
-        model = GPClassificationModel(lb=[-3], ub=[3], inducing_size=20)
+        model = GPClassificationModel(inducing_size=20)
 
         ls_before = model.covar_module.lengthscale.clone().detach().numpy()
         model.fit(torch.Tensor(self.X), torch.Tensor(self.y))
@@ -263,36 +255,32 @@ class GPClassificationSmoketest(unittest.TestCase):
 
         ls_reset = model.covar_module.lengthscale.clone().cpu().detach().numpy()
 
-        # before should be different from after and after should be different
-        # from reset but before and reset should be same
         self.assertFalse(np.allclose(ls_before, ls_after))
         self.assertFalse(np.allclose(ls_after, ls_reset))
         self.assertTrue(np.allclose(ls_before, ls_reset))
 
     def test_reset_variational_strategy(self):
-        model = GPClassificationModel(lb=[-3], ub=[3], inducing_size=20)
+        model = GPClassificationModel(inducing_size=20)
 
         variational_params_before = [
             v.clone().detach().numpy() for v in model.variational_parameters()
         ]
-        induc_before = model.variational_strategy.inducing_points
+        induc_before = model.variational_strategy.inducing_points.clone().detach().numpy()
 
         model.fit(torch.Tensor(self.X), torch.Tensor(self.y))
 
         variational_params_after = [
             v.clone().cpu().detach().numpy() for v in model.variational_parameters()
         ]
-        induc_after = model.variational_strategy.inducing_points
+        induc_after = model.variational_strategy.inducing_points.clone().cpu().detach().numpy()
 
         model._reset_variational_strategy()
 
         variational_params_reset = [
             v.clone().cpu().detach().numpy() for v in model.variational_parameters()
         ]
-        induc_reset = model.variational_strategy.inducing_points
+        induc_reset = model.variational_strategy.inducing_points.clone().cpu().detach().numpy()
 
-        # before should be different from after and after should be different
-        # from reset
         self.assertFalse(np.allclose(induc_before, induc_after))
         self.assertFalse(np.allclose(induc_after, induc_reset))
         for before, after in zip(variational_params_before, variational_params_after):
@@ -306,9 +294,7 @@ class GPClassificationSmoketest(unittest.TestCase):
         Verify analytic p-space mean and var is correct.
         """
         X, y = self.X, self.y
-        model = GPClassificationModel(
-            torch.Tensor([-3]), torch.Tensor([3]), inducing_size=10
-        )
+        model = GPClassificationModel(inducing_size=10)
         model.fit(X, y)
 
         pmean_analytic, pvar_analytic = model.predict_probability(X)
@@ -317,9 +303,11 @@ class GPClassificationSmoketest(unittest.TestCase):
         psamps = norm.cdf(fsamps)
         pmean_samp = psamps.mean(0)
         pvar_samp = psamps.var(0)
-        # TODO these tolerances are a bit loose, verify this is right.
+
+        # These tolerances are set to verify the approximation accuracy.
         self.assertTrue(np.allclose(pmean_analytic, pmean_samp, atol=0.01))
         self.assertTrue(np.allclose(pvar_analytic, pvar_samp, atol=0.01))
+
 
 
 class GPClassificationTest(unittest.TestCase):
@@ -344,7 +332,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -366,7 +354,7 @@ class GPClassificationTest(unittest.TestCase):
 
         zhat, _ = strat.predict(x)
 
-        # true max is 0, very loose test
+        # Test if the predicted max is close to the true max at 0
         self.assertTrue(np.abs(x[np.argmax(zhat.detach().numpy())]) < 0.5)
 
     def test_1d_single_probit_batched(self):
@@ -390,7 +378,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -435,7 +423,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -479,7 +467,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -528,7 +516,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -580,7 +568,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -631,7 +619,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -688,7 +676,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 min_asks=n_opt,
                 generator=OptimizeAcqfGenerator(
                     MCLevelSetEstimation, acqf_kwargs=extra_acqf_args
@@ -733,7 +721,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=20),
+                model=GPClassificationModel(inducing_size=20),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -776,7 +764,7 @@ class GPClassificationTest(unittest.TestCase):
             Strategy(
                 lb=lb,
                 ub=ub,
-                model=GPClassificationModel(lb=lb, ub=ub, inducing_size=10),
+                model=GPClassificationModel(inducing_size=10),
                 generator=OptimizeAcqfGenerator(
                     qUpperConfidenceBound, acqf_kwargs={"beta": 1.96}
                 ),
@@ -796,16 +784,21 @@ class GPClassificationTest(unittest.TestCase):
             strat.gen()
 
     def test_hyperparam_consistency(self):
-        # verify that creating the model `from_config` or with `__init__` has the same hyperparams
+        inducing_points = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
+        m1 = GPClassificationModel(inducing_points=inducing_points, inducing_size=2)
 
-        m1 = GPClassificationModel(lb=[1, 2], ub=[3, 4])
+        config_dict = {
+            "common": {
+                "inducing_points": "[[1.0, 2.0], [3.0, 4.0]]",
+                "inducing_size": "2"
+            }
+        }
+        config = Config(config_dict=config_dict)
+        m2 = GPClassificationModel.from_config(config)
 
-        m2 = GPClassificationModel.from_config(
-            config=Config(config_dict={"common": {"lb": "[1,2]", "ub": "[3,4]"}})
-        )
-        self.assertTrue(isinstance(m1.covar_module, type(m2.covar_module)))
         self.assertTrue(isinstance(m1.covar_module, type(m2.covar_module)))
         self.assertTrue(isinstance(m1.mean_module, type(m2.mean_module)))
+
         m1priors = list(m1.covar_module.named_priors())
         m2priors = list(m2.covar_module.named_priors())
         for p1, p2 in zip(m1priors, m2priors):
@@ -814,9 +807,10 @@ class GPClassificationTest(unittest.TestCase):
             self.assertTrue(name1 == name2)
             self.assertTrue(isinstance(parent1, type(parent2)))
             self.assertTrue(isinstance(prior1, type(prior2)))
-            # no obvious way to test paramtransform equivalence)
 
         self.assertTrue(m1.inducing_size == m2.inducing_size)
+        self.assertTrue(torch.equal(m1.inducing_points, m2.inducing_points))
+
 
 
 if __name__ == "__main__":

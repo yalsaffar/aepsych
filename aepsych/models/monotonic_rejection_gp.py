@@ -57,8 +57,7 @@ class MonotonicRejectionGP(AEPsychMixin, ApproximateGP):
     def __init__(
         self,
         monotonic_idxs: Sequence[int],
-        lb: torch.Tensor,
-        ub: torch.Tensor,
+        inducing_points: Optional[Tensor] = None,
         dim: Optional[int] = None,
         mean_module: Optional[Mean] = None,
         covar_module: Optional[Kernel] = None,
@@ -88,7 +87,7 @@ class MonotonicRejectionGP(AEPsychMixin, ApproximateGP):
             objective (Optional[MCAcquisitionObjective], optional): Transformation of GP to apply before computing acquisition function. Defaults to identity transform for gaussian likelihood, probit transform for probit-bernoulli.
             extra_acqf_args (Optional[Dict[str, object]], optional): Additional arguments to pass into the acquisition function. Defaults to None.
         """
-        self.lb, self.ub, self.dim = _process_bounds(lb, ub, dim)
+        # self.lb, self.ub, self.dim = _process_bounds(lb, ub, dim)
         if likelihood is None:
             likelihood = BernoulliLikelihood()
 
@@ -97,10 +96,14 @@ class MonotonicRejectionGP(AEPsychMixin, ApproximateGP):
             self.inducing_point_method = AutoAllocator()
         else:
             self.inducing_point_method = inducing_point_method
-        inducing_points = select_inducing_points(
-            allocator=SobolAllocator(bounds=torch.stack((self.lb, self.ub))),
-            inducing_size=self.inducing_size,
-        )
+
+        
+        # inducing_points = select_inducing_points(
+        #     allocator=SobolAllocator(bounds=torch.stack((self.lb, self.ub))),
+        #     inducing_size=self.inducing_size,
+        # )
+        if inducing_points is None:
+            inducing_points = inducing_points = torch.zeros(self.inducing_size)
 
         inducing_points_aug = self._augment_with_deriv_index(inducing_points, 0)
         variational_distribution = CholeskyVariationalDistribution(
@@ -141,7 +144,7 @@ class MonotonicRejectionGP(AEPsychMixin, ApproximateGP):
 
         super().__init__(variational_strategy)
 
-        self.bounds_ = torch.stack([self.lb, self.ub])
+        # self.bounds_ = torch.stack([self.lb, self.ub])
         self.mean_module = mean_module
         self.covar_module = covar_module
         self.likelihood = likelihood
@@ -312,8 +315,7 @@ class MonotonicRejectionGP(AEPsychMixin, ApproximateGP):
             classname, "num_rejection_samples", fallback=5000
         )
 
-        lb = config.gettensor(classname, "lb")
-        ub = config.gettensor(classname, "ub")
+        inducing_points = config.gettensor(classname, "inducing_points", fallback=None)
         dim = config.getint(classname, "dim", fallback=None)
 
         mean_covar_factory = config.getobj(
@@ -328,8 +330,7 @@ class MonotonicRejectionGP(AEPsychMixin, ApproximateGP):
 
         return cls(
             monotonic_idxs=monotonic_idxs,
-            lb=lb,
-            ub=ub,
+            inducing_points=inducing_points,
             dim=dim,
             num_induc=num_induc,
             num_samples=num_samples,

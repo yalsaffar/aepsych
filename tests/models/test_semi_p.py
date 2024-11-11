@@ -33,10 +33,9 @@ from gpytorch.distributions import MultivariateNormal
 from parameterized import parameterized
 
 
-def _hadamard_model_constructor(lb, ub, stim_dim, floor, objective=FloorLogitObjective):
+def _hadamard_model_constructor(inducing_points, stim_dim, floor, objective=FloorLogitObjective):
     return HadamardSemiPModel(
-        lb=lb,
-        ub=ub,
+        inducing_points=inducing_points,
         stim_dim=stim_dim,
         likelihood=BernoulliObjectiveLikelihood(objective=objective(floor=floor)),
         inducing_size=10,
@@ -45,10 +44,9 @@ def _hadamard_model_constructor(lb, ub, stim_dim, floor, objective=FloorLogitObj
     )
 
 
-def _semip_model_constructor(lb, ub, stim_dim, floor, objective=FloorLogitObjective):
+def _semip_model_constructor(inducing_points, stim_dim, floor, objective=FloorLogitObjective):
     return SemiParametricGPModel(
-        lb=lb,
-        ub=ub,
+        inducing_points=inducing_points,
         stim_dim=stim_dim,
         likelihood=LinearBernoulliLikelihood(objective=objective(floor=floor)),
         inducing_size=10,
@@ -84,6 +82,7 @@ class SemiPSmokeTests(unittest.TestCase):
         X[:, 1] = X[:, 1] / 100
         self.lb = [-100, -0.01]
         self.ub = [100, 0.01]
+        self.inducing_points = torch.tensor([[0.0, 0.0], [1.0, 1.0]])
         self.X = torch.Tensor(X)
 
     @parameterized.expand(
@@ -93,8 +92,7 @@ class SemiPSmokeTests(unittest.TestCase):
         # no objective here, the objective for `gen` is not the same as the objective
         # for the likelihood in this case
         model = SemiParametricGPModel(
-            lb=self.lb,
-            ub=self.ub,
+            inducing_points=self.inducing_points,
             stim_dim=self.stim_dim,
             likelihood=LinearBernoulliLikelihood(),
             inducing_size=10,
@@ -124,8 +122,7 @@ class SemiPSmokeTests(unittest.TestCase):
         floor = 0
         objective = FloorProbitObjective
         model = _semip_model_constructor(
-            lb=self.lb,
-            ub=self.ub,
+            inducing_points=self.inducing_points,
             stim_dim=self.stim_dim,
             floor=floor,
             objective=objective,
@@ -173,8 +170,7 @@ class SemiPSmokeTests(unittest.TestCase):
             y = torch.bernoulli(link(self.f))
 
             model = model_constructor(
-                lb=self.lb,
-                ub=self.ub,
+                inducing_points=self.inducing_points,
                 stim_dim=self.stim_dim,
                 floor=floor,
                 objective=objective,
@@ -197,14 +193,14 @@ class SemiPSmokeTests(unittest.TestCase):
         n_opt = 1
         lb = [-1, -1]
         ub = [1, 1]
+        inducing_points = torch.tensor([[0.0, 0.0], [1.0, 1.0]])
 
         with self.subTest(model_constructor=model_constructor):
-            model = model_constructor(lb=lb, ub=ub, stim_dim=self.stim_dim, floor=0)
+            model = model_constructor(inducing_points=inducing_points, stim_dim=self.stim_dim, floor=0)
 
             strat_list = [
                 Strategy(
-                    lb=lb,
-                    ub=ub,
+                    inducing_points=inducing_points,
                     model=model,
                     generator=SobolGenerator(lb=lb, ub=ub, seed=self.seed),
                     min_asks=n_opt,
@@ -258,9 +254,10 @@ class SemiPSmokeTests(unittest.TestCase):
     def test_reset_variational_strategy(self, model_constructor):
         lb = [-3, -3]
         ub = [3, 3]
+        inducing_points = torch.tensor([[0.0, 0.0], [1.0, 1.0]])
         stim_dim = 0
         with self.subTest(model_constructor=model_constructor):
-            model = model_constructor(lb=lb, ub=ub, stim_dim=stim_dim, floor=0)
+            model = model_constructor(inducing_points=inducing_points, stim_dim=stim_dim, floor=0)
             link = FloorLogitObjective(floor=0)
             y = torch.bernoulli(link(self.f))
 
@@ -298,8 +295,7 @@ class SemiPSmokeTests(unittest.TestCase):
     def test_slope_mean_setting(self):
         for slope_mean in (2, 4):
             model = SemiParametricGPModel(
-                lb=self.lb,
-                ub=self.ub,
+                inducing_points=self.inducing_points,
                 stim_dim=self.stim_dim,
                 likelihood=LinearBernoulliLikelihood(),
                 inducing_size=10,
@@ -309,8 +305,7 @@ class SemiPSmokeTests(unittest.TestCase):
             with self.subTest(model=model, slope_mean=slope_mean):
                 self.assertEqual(model.mean_module.constant[-1], slope_mean)
             model = HadamardSemiPModel(
-                lb=self.lb,
-                ub=self.ub,
+                inducing_points=self.inducing_points,
                 stim_dim=self.stim_dim,
                 likelihood=BernoulliObjectiveLikelihood(objective=ProbitObjective()),
                 inducing_size=10,
@@ -332,7 +327,7 @@ class HadamardSemiPtest(unittest.TestCase):
         self.y = torch.bernoulli(link(X[:, stim_dim]))
 
     def test_reset_hyperparams(self):
-        model = HadamardSemiPModel(lb=[-3, -3], ub=[3, 3], inducing_size=20)
+        model = HadamardSemiPModel(inducing_points=torch.tensor([[0.0, 0.0], [1.0, 1.0]]), inducing_size=20)
 
         slope_os_before = model.slope_covar_module.outputscale.clone().detach().numpy()
         offset_os_before = (

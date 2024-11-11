@@ -58,7 +58,7 @@ def ensure_model_is_fresh(f: Callable) -> Callable:
             else:
                 logger.info("Starting fitting (warm start)...")
                 # warm start
-                self.update()
+                self.fit()
             logger.info(f"Fitting done, took {time.time()-starttime}")
         self._model_is_fresh = True
         return f(self, *args, **kwargs)

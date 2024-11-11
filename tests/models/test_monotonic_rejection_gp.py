@@ -32,9 +32,9 @@ class MonotonicRejectionGPLSETest(BotorchTestCase):
         model_gen_options = {"num_restarts": 1, "raw_samples": 3, "epochs": 5}
         lb = torch.tensor([0, 0])
         ub = torch.tensor([4, 4])
+        inducing_points = torch.tensor([[0.0, 0.0], [1.0, 1.0]])
         m = MonotonicRejectionGP(
-            lb=lb,
-            ub=ub,
+            inducing_points=inducing_points,
             likelihood=GaussianLikelihood(),
             fixed_prior_mean=target,
             monotonic_idxs=[1],
