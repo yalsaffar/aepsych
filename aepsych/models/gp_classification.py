@@ -101,22 +101,34 @@ class GPClassificationModel(AEPsychModelDeviceMixin, ApproximateGP):
         #     allocator=SobolAllocator(bounds=torch.stack((lb, ub))),
         #     inducing_size=self.inducing_size,
         # )
+        if dim is None:
+            if inducing_points is not None:
+                self.dim = inducing_points.shape[-1]  # Use the last dimension of inducing_points
+        else:
+            self.dim = dim
+
+        self.inducing_point_method: Optional[InducingPointAllocator]
         if inducing_points is not None and inducing_point_method is not None:
             warnings.warn(
                 "Both inducing_points and inducing_point_allocator are provided. "
                 "The initial inducing_points will be overwritten by the allocator."
             )
+            self.inducing_point_method = inducing_point_method
+            self.inducing_points = inducing_points
         elif inducing_points is not None and inducing_point_method is None:
             # Log or mark that we won’t be using the allocator, only inducing_points
             self.inducing_points = inducing_points
-            self.inducing_point_method = None
+            self.inducing_point_method = AutoAllocator()
         
         elif inducing_points is None and inducing_point_method is None:
-            self.inducing_points = torch.zeros(inducing_size)
+            self.inducing_points = torch.zeros(inducing_size or 99)
+            self.inducing_point_method = AutoAllocator()
+
 
         else:
             self.inducing_point_method = inducing_point_method
-            self.inducing_points = torch.zeros(inducing_size)
+            self.inducing_points = torch.zeros(inducing_size or 99)
+
         
         variational_distribution = CholeskyVariationalDistribution(
             self.inducing_points.size(0), batch_shape=torch.Size([self._batch_size])

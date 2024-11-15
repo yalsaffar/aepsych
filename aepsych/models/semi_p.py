@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from typing import Any, Optional, Tuple, Union
+import warnings
 
 import gpytorch
 import numpy as np
@@ -207,14 +208,15 @@ class SemiParametricGPModel(GPClassificationModel):
             inducing_size (int): Number of inducing points. Defaults to 99.
             max_fit_time (float, optional): The maximum amount of time, in seconds, to spend fitting the model. If None,
                 there is no limit to the fitting time.
-            inducing_point_method (string): The method to use to select the inducing points. Defaults to "auto".
-                If "sobol", a number of Sobol points equal to inducing_size will be selected.
-                If "pivoted_chol", selects points based on the pivoted Cholesky heuristic.
-                If "kmeans++", selects points by performing kmeans++ clustering on the training data.
-                If "auto", tries to determine the best method automatically.
+            inducing_point_method (InducingPointAllocator, optional): The method to use to select the inducing points. Defaults to AutoAllocator.
         """
 
-        # lb, ub, dim = _process_bounds(lb, ub, dim)
+        if dim is None:
+            if inducing_points is not None:
+                dim = inducing_points.shape[-1]  # Use the last dimension of inducing_points
+            else:
+                raise ValueError("You must provide `dim` if `inducing_points` is not given.")
+
         self.stim_dim = stim_dim
         self.context_dims = list(range(dim))
         self.context_dims.pop(stim_dim)
@@ -241,8 +243,26 @@ class SemiParametricGPModel(GPClassificationModel):
         assert isinstance(
             likelihood, LinearBernoulliLikelihood
         ), "SemiP model only supports linear Bernoulli likelihoods!"
-        if inducing_point_method is None:
-            inducing_point_method = AutoAllocator()
+
+        self.inducing_point_method: Optional[InducingPointAllocator]
+        if inducing_points is not None and inducing_point_method is not None:
+            warnings.warn(
+                "Both inducing_points and inducing_point_allocator are provided. "
+                "The initial inducing_points will be overwritten by the allocator."
+            )
+        elif inducing_points is not None and inducing_point_method is None:
+            # Log or mark that we won’t be using the allocator, only inducing_points
+            self.inducing_points = inducing_points
+            self.inducing_point_method = AutoAllocator()
+        
+        elif inducing_points is None and inducing_point_method is None:
+            self.inducing_points = torch.zeros(inducing_size or 99)
+            self.inducing_point_method = AutoAllocator()
+
+
+        else:
+            self.inducing_point_method = inducing_point_method
+            self.inducing_points = torch.zeros(inducing_size or 99)
 
         super().__init__(
             inducing_points=inducing_points,
@@ -458,14 +478,26 @@ class HadamardSemiPModel(GPClassificationModel):
             inducing_size (int): Number of inducing points. Defaults to 99.
             max_fit_time (float, optional): The maximum amount of time, in seconds, to spend fitting the model. If None,
                 there is no limit to the fitting time.
-            inducing_point_method (string): The method to use to select the inducing points. Defaults to "auto".
-                If "sobol", a number of Sobol points equal to inducing_size will be selected.
-                If "pivoted_chol", selects points based on the pivoted Cholesky heuristic.
-                If "kmeans++", selects points by performing kmeans++ clustering on the training data.
-                If "auto", tries to determine the best method automatically.
+            inducing_point_method (InducingPointAllocator, optional): The method to use to select the inducing points. Defaults to AutoAllocator.
         """
-        if inducing_point_method is None:
-            inducing_point_method = AutoAllocator()
+        if inducing_points is not None and inducing_point_method is not None:
+            warnings.warn(
+                "Both inducing_points and inducing_point_allocator are provided. "
+                "The initial inducing_points will be overwritten by the allocator."
+            )
+        elif inducing_points is not None and inducing_point_method is None:
+            # Log or mark that we won’t be using the allocator, only inducing_points
+            self.inducing_points = inducing_points
+            self.inducing_point_method = AutoAllocator()
+        
+        elif inducing_points is None and inducing_point_method is None:
+            self.inducing_points = torch.zeros(inducing_size or 99)
+            self.inducing_point_method = AutoAllocator()
+
+
+        else:
+            self.inducing_point_method = inducing_point_method
+            self.inducing_points = torch.zeros(inducing_size or 99)
         super().__init__(
             inducing_points=inducing_points,
             dim=dim,

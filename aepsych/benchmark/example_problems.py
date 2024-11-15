@@ -107,8 +107,7 @@ class ContrastSensitivity6d(LSEProblemWithEdgeLogging):
 
         # Fit a model, with a large number of inducing points
         self.m = GPClassificationModel(
-            lb=self.bounds[0],
-            ub=self.bounds[1],
+            dim=self.bounds.size(1),  # Set dimension from bounds
             inducing_size=100,
             inducing_point_method=KMeansAllocator(),
         )
