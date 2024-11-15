@@ -51,14 +51,15 @@ def ensure_model_is_fresh(f: Callable) -> Callable:
     def wrapper(self, *args, **kwargs):
         if self.can_fit and not self._model_is_fresh:
             starttime = time.time()
-            if self._count % self.refit_every == 0 or self.refit_every == 1:
+            if self._is_first_fit or self._count % self.refit_every == 0 or self.refit_every == 1:
                 logger.info("Starting fitting (no warm start)...")
                 # don't warm start
                 self.fit()
+                self._is_first_fit = False
             else:
                 logger.info("Starting fitting (warm start)...")
                 # warm start
-                self.fit()
+                self.update()
             logger.info(f"Fitting done, took {time.time()-starttime}")
         self._model_is_fresh = True
         return f(self, *args, **kwargs)
@@ -133,6 +134,7 @@ class Strategy(object):
                 it will be returned in transformed space.
         """
         self.is_finished = False
+        self._is_first_fit = True
 
         if run_indefinitely:
             warnings.warn(
