@@ -51,10 +51,10 @@ class TestOptimizeAcqfGenerator(unittest.TestCase):
         lb = torch.tensor([0])
         ub = torch.tensor([1])
         model = GPClassificationModel(
-            lb=lb, ub=ub, inducing_size=10, inducing_point_method="pivoted_chol"
+            inducing_points=torch.linspace(0, 1, steps=10).unsqueeze(-1), inducing_size=10, inducing_point_method="pivoted_chol"
         )
 
-        generator = OptimizeAcqfGenerator(acqf=acqf, acqf_kwargs=acqf_kwargs)
+        generator = OptimizeAcqfGenerator(acqf=acqf, lb=lb, ub=ub, acqf_kwargs=acqf_kwargs)
 
         strat = Strategy(
             lb=torch.tensor([0]),

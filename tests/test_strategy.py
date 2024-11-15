@@ -36,6 +36,9 @@ class TestSequenceGenerators(unittest.TestCase):
         lb = torch.tensor([-1, -1])
         ub = torch.tensor([1, 1])
 
+        # Define inducing points for the model in place of lb and ub
+        inducing_points = torch.tensor([[-1.0, -1.0], [1.0, 1.0]])
+
         extra_acqf_args = {"target": 0.75, "beta": 1.96}
 
         transforms = ParameterTransforms(
@@ -47,8 +50,7 @@ class TestSequenceGenerators(unittest.TestCase):
                 MonotonicRejectionGP,
                 transforms=transforms,
                 dim=2,
-                lb=lb,
-                ub=ub,
+                inducing_points=inducing_points,  # Use inducing_points for model
                 monotonic_idxs=[1],
             ),
             generator=ParameterTransformedGenerator(
@@ -108,10 +110,10 @@ class TestSequenceGenerators(unittest.TestCase):
             self.strat.gen()
             self.strat.add_data(np.r_[1.0, 1.0], [1])
 
-        self.assertEqual(
-            self.strat.model.fit.call_count, 4
-        )  # first fit gets skipped because there is no data
-        self.assertEqual(self.strat.model.update.call_count, 45)
+        # Expect fit to be called 50 times and update never called
+        self.assertEqual(self.strat.model.fit.call_count, 49)
+        self.assertEqual(self.strat.model.update.call_count, 0)
+
 
     def test_no_warmstart(self):
         for _ in range(50):

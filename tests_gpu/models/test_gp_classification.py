@@ -107,8 +107,7 @@ class GPClassificationSmoketest(unittest.TestCase):
         X, y = self.X, self.y
 
         model = GPClassificationModel(
-            torch.Tensor([-3]),
-            torch.Tensor([3]),
+            inducing_points=torch.linspace(-3, 3, steps=10).unsqueeze(-1),
             inducing_size=10,
         ).to("cuda")
 

@@ -29,12 +29,12 @@ class UtilsTestCase(unittest.TestCase):
         self.assertEqual(grid.shape, (100, 2))
 
     def test_dim_grid_model_size(self):
-        lb = -4.0
-        ub = 4.0
         dim = 1
         gridsize = 10
-        mb = GPClassificationModel(lb=lb, ub=ub, dim=dim)
+        inducing_points = torch.linspace(-4.0, 4.0, steps=10).unsqueeze(-1)  
+        mb = GPClassificationModel(inducing_points=inducing_points, dim=dim)
         grid = GPClassificationModel.dim_grid(mb, gridsize=gridsize)
+        
         self.assertEqual(grid.shape, torch.Size([10, 1]))
 
     def test_process_bounds(self):

@@ -7,6 +7,8 @@
 
 import unittest
 
+import torch
+
 from aepsych.acquisition.monotonic_rejection import MonotonicMCLSE
 from aepsych.generators import OptimizeAcqfGenerator, SobolGenerator
 from aepsych.models.gp_classification import GPClassificationModel
@@ -34,8 +36,8 @@ class TestStrategyGPU(unittest.TestCase):
                 stimuli_per_trial=1,
                 outcome_types=["binary"],
                 min_asks=1,
-                model=GPClassificationModel(lb=[0], ub=[1]),
-                generator=OptimizeAcqfGenerator(acqf=MonotonicMCLSE),
+                model=GPClassificationModel(inducing_points=torch.zeros(10, 1)),
+                generator=OptimizeAcqfGenerator(acqf=MonotonicMCLSE, lb=[0], ub=[1]),
                 use_gpu_generating=True,
             )
 

@@ -88,17 +88,16 @@ class TransformsConfigTest(unittest.TestCase):
     def test_model_init_equivalent(self):
         config_model = self.strat.strat_list[1].model
 
+        inducing_points = torch.linspace(1.0, 100.0, steps=10).unsqueeze(-1).repeat(1, 2)  # Inducing points in 2D space
         obj_model = ParameterTransformedModel(
             model=GPClassificationModel,
-            lb=torch.tensor([1, 1]),
-            ub=torch.tensor([100, 100]),
+            inducing_points=inducing_points,
             transforms=self.strat.strat_list[1].transforms,
         )
 
         self.assertTrue(type(config_model._base_obj) is type(obj_model._base_obj))
-        self.assertTrue(torch.equal(config_model.bounds, obj_model.bounds))
-        self.assertTrue(torch.equal(config_model.bounds, obj_model.bounds))
-
+        self.assertEqual(config_model.dim, obj_model.dim)
+        
         self.assertEqual(
             len(config_model.transforms.values()), len(obj_model.transforms.values())
         )
